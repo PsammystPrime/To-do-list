@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
     <h1>Let's plan</h1>
     <form action="#" method="get">
         <input type="text" id="input" placeholder="I plan to..." required>
-        <button class="submit">Add List</button>
         <div>
             <div>Urgency Level</div>
             <label for="urgency">High</label>
@@ -21,13 +21,14 @@
             <label for="urgency">Low</label>
             <input type="radio" name="urgency" id="normal">            
         </div>
+        <button class="submit">Add List</button>
 
         
     </form>
-    <p class=""> </p>
+    <p class="p1"> </p>
     <p class="p2"></p>
 
-    <div>
+    <div class="lists">
         <div id="one">
             <h5>Very Urgent</h5>
         </div>
