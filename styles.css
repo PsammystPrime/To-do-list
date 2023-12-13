@@ -2,16 +2,13 @@ html{
     background-color: bisque;
 }
 li{
-
-    
     text-decoration-style: none;
     list-style-type: decimal;
     height: 20px;
     width: 290px;
-     gap: 10px;
+    gap: 10px;
     margin: 10px;
   
-
 }
 h1,form{
     display: flex;
