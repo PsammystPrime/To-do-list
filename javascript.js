@@ -37,12 +37,13 @@ list.appendChild(item);
 list.appendChild(removeList);
 one.appendChild(list);
 input.value = ''
-para2.textContent=''
-high.value=''
+para2.textContent= para.textContent
+para.textContent = 'When it gets tough, put it down on paper!'
+
 
 removeList.addEventListener('click',()=>{
-    display.removeChild(list)
-    para.textContent = 'list removed'
+    one.removeChild(list)
+    para2.textContent = 'A very Urgent list removed'
 })
     }else if (para2.textContent=== 'medium') {
         para.textContent = 'medium List Added'
@@ -57,12 +58,12 @@ list.appendChild(item);
 list.appendChild(removeList);
 two.appendChild(list);
 input.value = ''
-para2.textContent=''
-high.value=''
+para2.textContent= para.textContent
+para.textContent = 'Trust your process,only you know what it takes to be you!'
 
 removeList.addEventListener('click',()=>{
-    display.removeChild(list)
-    para.textContent = 'list removed'
+    two.removeChild(list)
+    para2.textContent = 'An urgent list removed'
 })
         
     }else if (para2.textContent=== 'low') {
@@ -78,12 +79,13 @@ list.appendChild(item);
 list.appendChild(removeList);
 three.appendChild(list);
 input.value = ''
-para2.textContent=''
-high.value=''
+para2.textContent= para.textContent
+para.textContent = 'Simplicity is key'
+
 
 removeList.addEventListener('click',()=>{
-    display.removeChild(list)
-    para.textContent = 'list removed'
+    three.removeChild(list)
+    para2.textContent = 'normal list removed'
 })
     }
     
