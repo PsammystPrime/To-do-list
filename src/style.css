@@ -1,6 +1,11 @@
 body{
     background-color: bisque;
 }
+#nav{
+    height: 30px;
+    width: 30px;
+    border-radius: 30%;
+}
 li{
     text-decoration-style: none;
     list-style-type: decimal;
