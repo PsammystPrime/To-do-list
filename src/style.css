@@ -1,0 +1,46 @@
+body{
+    background-color: bisque;
+}
+li{
+    text-decoration-style: none;
+    list-style-type: decimal;
+    height: 20px;
+    width: 290px;
+    gap: 10px;
+    margin: 10px;
+  
+}
+h1,form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    text-decoration: underline;
+    justify-content: center;
+    font-weight: 900;
+    font-size: xx-large;
+    font-style: oblique;
+    font-family: sans-serif;
+}
+h3{
+    text-decoration: underline;
+
+}
+.lists{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+   
+}
+.submit:hover{
+background-color: black;
+color: bisque;
+}
+.radios{
+    padding-left: 20px;
+    margin: 10px;
+    
+}
