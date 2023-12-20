@@ -1,78 +1,103 @@
 /*const { add } = require("date-fns");*/
 //const { container } = require("webpack");
-const container = document.getElementById('container');
-import Icon from './house.jpg'
+    const list = document.createElement('ul');
+    const display = document.createElement('div');
+    list.id = 'list';
+    display.id = 'display';
+    display.textContent = 'Display';
+    import Icon from './house.jpg'
 
-const admin = document.createElement('div');
-const adminImg = document.createElement('img');
-const adminName = document.createElement('button');
-adminImg.id = 'nav'
-adminImg.src = Icon
-adminName.textContent = 'Psammyst'
-admin.appendChild(adminImg);
-admin.appendChild(adminName);
 
-const task = document.createElement('div');
-const  taskImg= document.createElement('img');
-const taskName = document.createElement('button');
-taskImg.id = 'nav'
-taskImg.src = Icon
-taskName.textContent = 'Add Task'
-task.appendChild(taskImg);
-task.appendChild(taskName);
+/*******Application Logic ********/
+function populate(){
+    const admin = document.createElement('li');
+    const adminImg = document.createElement('img');
+    const adminName = document.createElement('a');
+    adminImg.id = 'nav'
+    adminImg.src = Icon
+    adminName.textContent = 'Psammyst'
+    adminName.href = '#'
+    admin.appendChild(adminImg);
+    admin.appendChild(adminName);
+    
+    const task = document.createElement('li');
+    const  taskImg= document.createElement('img');
+    const taskName = document.createElement('a');
+    taskImg.id = 'nav'
+    taskImg.src = Icon
+    taskName.textContent = 'Add Task'
+    taskName.href = '#'
+    task.appendChild(taskImg);
+    task.appendChild(taskName);
+    
+    const search = document.createElement('li');
+    const searchImg = document.createElement('img');
+    const searchName = document.createElement('a');
+    searchImg.id = 'nav'
+    searchImg.src = Icon
+    searchName.textContent = 'Search'
+    searchName.href = '#'
+    search.appendChild(searchImg);
+    search.appendChild(searchName);
+    
+    const today = document.createElement('li');
+    const todayImg = document.createElement('img');
+    const todayName = document.createElement('a');
+    todayImg.id = 'nav'
+    todayImg.src = Icon
+    todayName.textContent = 'Today'
+    todayName.href = 'www.github.com'
+    today.appendChild(todayImg);
+    today.appendChild(todayName);
+    
+    const  inbox= document.createElement('li');
+    const  inboxImg= document.createElement('img');
+    const  inboxName= document.createElement('a');
+    inboxImg.id = 'nav'
+    inboxImg.src = Icon
+    inboxName.textContent = 'Inbox'
+    inboxName.href = '#'
+    inbox.appendChild(inboxImg);
+    inbox.appendChild(inboxName);
+    
+    const  myProjects= document.createElement('li');
+    const  myProjectsImg= document.createElement('img');
+    const  myProjectsName= document.createElement('a');
+    myProjects.id = 'projects'
+    myProjectsImg.src = Icon
+    myProjectsName.textContent = 'My Projects'
+    myProjectsName.href= '#'
+    myProjects.appendChild(myProjectsImg);
+    myProjects.appendChild(myProjectsName);
+    
+    const  team= document.createElement('li');
+    const  teamImg= document.createElement('img');
+    const  teamName= document.createElement('a');
+    team.id = 'team'
+    teamImg.src = Icon
+    teamName.textContent = 'Team'
+    team.appendChild(teamImg);
+    team.appendChild(teamName);
+    
+    
+    list.appendChild(admin);
+    list.appendChild(task);
+    list.appendChild(search);
+    list.appendChild(today);
+    list.appendChild(inbox);
+    list.appendChild(myProjects);
+    list.appendChild(team);
+    
+    taskName.addEventListener('click',()=>{
+        newTask().showModal()
+    })
+    return container.appendChild(list),
+    container.appendChild(display);
+    };
 
-const search = document.createElement('div');
-const searchImg = document.createElement('img');
-const searchName = document.createElement('button');
-searchImg.id = 'nav'
-searchImg.src = Icon
-searchName.textContent = 'Search'
-search.appendChild(searchImg);
-search.appendChild(searchName);
-
-const today = document.createElement('div');
-const todayImg = document.createElement('img');
-const todayName = document.createElement('button');
-todayImg.id = 'nav'
-todayImg.src = Icon
-todayName.textContent = 'Today'
-today.appendChild(todayImg);
-today.appendChild(todayName);
-
-const  inbox= document.createElement('div');
-const  inboxImg= document.createElement('img');
-const  inboxName= document.createElement('button');
-inboxImg.id = 'nav'
-inboxImg.src = Icon
-inboxName.textContent = 'Inbox'
-inbox.appendChild(inboxImg);
-inbox.appendChild(inboxName);
-
-const  myProjects= document.createElement('div');
-const  myProjectsImg= document.createElement('img');
-const  myProjectsName= document.createElement('button');
-myProjectsImg.id = 'nav'
-myProjectsImg.src = Icon
-myProjectsName.textContent = 'My Projects'
-myProjects.appendChild(myProjectsImg);
-myProjects.appendChild(myProjectsName);
-
-const  team= document.createElement('div');
-const  teamImg= document.createElement('img');
-const  teamName= document.createElement('button');
-teamImg.id = 'nav'
-teamImg.src = Icon
-teamName.textContent = 'Team'
-team.appendChild(teamImg);
-team.appendChild(teamName);
-
-container.appendChild(admin);
-container.appendChild(task);
-container.appendChild(search);
-container.appendChild(today);
-container.appendChild(inbox);
-container.appendChild(myProjects);
-container.appendChild(team);
+function gee() {
+    newTask().close()
+}
 
 /*****create input modal******/
 function newTask() {
@@ -99,28 +124,16 @@ form.appendChild(cancel);
 form.appendChild(addTask);
 dialog.appendChild(form);
 
-    dueDate.addEventListener('click', (e)=>{
-    e.preventDefault()
-    });
-    priority.addEventListener('click', (e)=>{
-        e.preventDefault()
-    });
-    category.addEventListener('click', (e)=>{
-        e.preventDefault()
-    });
-    cancel.addEventListener('click', (e)=>{
-        e.preventDefault()
+
+    cancel.addEventListener('click', ()=>{
+        dialog.close()
     });
     
 
-return container.appendChild(dialog)
-}
+return display.appendChild(dialog)
+};
  
-function btns() {
-   
-
-}
 
 
-export {newTask}
+export { populate };
 
