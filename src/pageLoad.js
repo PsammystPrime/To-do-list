@@ -8,11 +8,12 @@
     list.id = 'list';
     display.id = 'display';
     article.id = 'article';
+    header.id = 'header';
     header.textContent = "Let's Plan";
     display.appendChild(header);
     display.appendChild(article);
     import Icon from './house.jpg';
-    import  {cards,toDay,inboxx,projects,teams}  from './display';
+    import  {cards,toDay,searcH,inboxx,projects,teams}  from './display';
 
 
 /*******Application Logic ********/
@@ -96,7 +97,7 @@ function populate(){
     list.appendChild(team);
     
     searchName.addEventListener('click',()=>{
-       cards();
+       searcH();
     })
     taskName.addEventListener('click',()=>{
         newTask().showModal()
@@ -125,8 +126,14 @@ const form = document.createElement('form');
 const input = document.createElement('input');
 const selections = document.createElement('div');
 const dueDate = document.createElement('button');
-const priority = document.createElement('button');
-const category = document.createElement('button');
+const priority = document.createElement('select');
+const priority1 = document.createElement('option');
+const priority2 = document.createElement('option');
+const priority3 = document.createElement('option');
+const category = document.createElement('select');
+const category1 = document.createElement('option');
+const category2 = document.createElement('option');
+const category3 = document.createElement('option');
 const addbtns = document.createElement('div')
 const cancel = document.createElement('button');
 const addTask = document.createElement('button');
@@ -135,14 +142,24 @@ dialog.id = 'favDialog';
 selections.className = 'selections';
 addbtns.className = 'addbtns';
 dueDate.textContent = 'DueDate';
-priority.textContent = 'Priority';
-category.textContent = 'Category';
 cancel.textContent = 'Cancel';
 addTask.textContent = 'Add';
+priority1.textContent = 'Low';
+priority2.textContent = 'Medium'
+priority3.textContent = 'High'
+category1.textContent = 'My Projects';
+category2.textContent = 'Team'
+category3.textContent = 'Work'
 
+priority.appendChild(priority1);
+priority.appendChild(priority2);
+priority.appendChild(priority3);
+category.appendChild(category1);
+category.appendChild(category2);
+category.appendChild(category3);
 form.appendChild(input);
 selections.appendChild(dueDate);
-selections.appendChild(priority);
+//selections.appendChild(priority);
 selections.appendChild(category);
 addbtns.appendChild(cancel);
 addbtns.appendChild(addTask);
@@ -150,12 +167,20 @@ form.appendChild(selections);
 form.appendChild(addbtns)
 dialog.appendChild(form);
 
+    const selectEl = dialog.querySelector("select");
+        selectEl.addEventListener("change", (e) => {
+        store2.push(selectEl.value);
+
     cancel.addEventListener('click', ()=>{dialog.close()});
     addTask.addEventListener('click', ()=>{
         store.push(input.value),
+      //  store2.push(input.value),
         dialog.close(),
         cards();
-        
+
+        console.log(store)
+        console.log(store2)
+});
     });
 
 return display.appendChild(dialog)
@@ -163,10 +188,12 @@ return display.appendChild(dialog)
  
 /*************store the user input*/
 const store = [];
+const store2 = [];
 
-function storage() {
-    return store.toString()
-    
+function storage() {   
+  let one = store.pop();
+ 
+ return one
     
 
     
