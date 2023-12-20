@@ -1,12 +1,18 @@
 /*const { add } = require("date-fns");*/
 //const { container } = require("webpack");
+    const container = document.getElementById('container')
     const list = document.createElement('ul');
     const display = document.createElement('div');
+    const header = document.createElement('h1');
+    const article = document.createElement('div');
     list.id = 'list';
     display.id = 'display';
-    display.textContent = 'Display';
-    import Icon from './house.jpg'
-    import  {cards}  from './display';
+    article.id = 'article';
+    header.textContent = "Let's Plan";
+    display.appendChild(header);
+    display.appendChild(article);
+    import Icon from './house.jpg';
+    import  {cards,toDay,inboxx,projects,teams}  from './display';
 
 
 /*******Application Logic ********/
@@ -90,13 +96,22 @@ function populate(){
     list.appendChild(team);
     
     searchName.addEventListener('click',()=>{
-        storage()
+       cards();
     })
     taskName.addEventListener('click',()=>{
         newTask().showModal()
     });
     todayName.addEventListener('click', ()=>{
-        cards();
+        toDay();
+    });
+    inboxName.addEventListener('click', ()=>{
+        inboxx();
+    });
+    myProjectsName.addEventListener('click', ()=>{
+        projects();
+    });
+    teamName.addEventListener('click', ()=>{
+        teams();
     });
 
     return container.appendChild(list),
@@ -108,13 +123,17 @@ function newTask() {
 const dialog = document.createElement('dialog');
 const form = document.createElement('form');
 const input = document.createElement('input');
+const selections = document.createElement('div');
 const dueDate = document.createElement('button');
 const priority = document.createElement('button');
 const category = document.createElement('button');
+const addbtns = document.createElement('div')
 const cancel = document.createElement('button');
 const addTask = document.createElement('button');
 
-dialog.id = 'favDialog'
+dialog.id = 'favDialog';
+selections.className = 'selections';
+addbtns.className = 'addbtns';
 dueDate.textContent = 'DueDate';
 priority.textContent = 'Priority';
 category.textContent = 'Category';
@@ -122,10 +141,13 @@ cancel.textContent = 'Cancel';
 addTask.textContent = 'Add';
 
 form.appendChild(input);
-form.appendChild(dueDate);
-form.appendChild(priority);
-form.appendChild(cancel);
-form.appendChild(addTask);
+selections.appendChild(dueDate);
+selections.appendChild(priority);
+selections.appendChild(category);
+addbtns.appendChild(cancel);
+addbtns.appendChild(addTask);
+form.appendChild(selections);
+form.appendChild(addbtns)
 dialog.appendChild(form);
 
     cancel.addEventListener('click', ()=>{dialog.close()});
@@ -144,6 +166,9 @@ const store = [];
 
 function storage() {
     return store.toString()
+    
+    
+
     
 };
 

@@ -1,7 +1,7 @@
 body{
     background-color: bisque;
 }
-#favDialog{
+#favDialog::backdrop{
     background-image: linear-gradient(
         45deg,
         magenta,
@@ -61,11 +61,43 @@ li{
 li:hover{
     background-color: cadetblue;
 }
-h1,form{
-   /* display: flex;
+#article{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+#card{
+    background-color: chartreuse;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    align-items: flex-start;
+    padding: 5px;
+    overflow-wrap: normal;
+   
+    
+}
+#details{
+    text-align-last: left;
+    padding-left: 7px;
+}
+form{
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;*/
+    align-items: center;
+    gap: 10px;
+}
+input{
+    border-radius: 10px;
+}
+.selections{
+    display: flex;
+    gap: 5px;
+}
+.addbtns{
+    display: flex;
+    gap: 50px;
 }
 
 h1{
@@ -76,22 +108,5 @@ h1{
     font-style: oblique;
     font-family: sans-serif;*/
 }
-h3{
-    /*text-decoration: underline;*/
 
-}
-.lists{
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
-   
-}
-/*.submit:hover{
-background-color: black;
-color: bisque;
-}
-.radios{
-    padding-left: 20px;
-    margin: 10px;
-    
-}*/
+
