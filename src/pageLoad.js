@@ -6,6 +6,7 @@
     display.id = 'display';
     display.textContent = 'Display';
     import Icon from './house.jpg'
+    import  {cards}  from './display';
 
 
 /*******Application Logic ********/
@@ -46,7 +47,7 @@ function populate(){
     todayImg.id = 'nav'
     todayImg.src = Icon
     todayName.textContent = 'Today'
-    todayName.href = 'www.github.com'
+    todayName.href = '#'
     today.appendChild(todayImg);
     today.appendChild(todayName);
     
@@ -88,18 +89,21 @@ function populate(){
     list.appendChild(myProjects);
     list.appendChild(team);
     
+    searchName.addEventListener('click',()=>{
+        storage()
+    })
     taskName.addEventListener('click',()=>{
         newTask().showModal()
-    })
+    });
+    todayName.addEventListener('click', ()=>{
+        cards();
+    });
+
     return container.appendChild(list),
     container.appendChild(display);
     };
 
-function gee() {
-    newTask().close()
-}
-
-/*****create input modal******/
+/*****create modal for user input******/
 function newTask() {
 const dialog = document.createElement('dialog');
 const form = document.createElement('form');
@@ -111,10 +115,10 @@ const cancel = document.createElement('button');
 const addTask = document.createElement('button');
 
 dialog.id = 'favDialog'
-dueDate.textContent = 'DD';
+dueDate.textContent = 'DueDate';
 priority.textContent = 'Priority';
-category.textContent = 'Cat';
-cancel.textContent = 'Del';
+category.textContent = 'Category';
+cancel.textContent = 'Cancel';
 addTask.textContent = 'Add';
 
 form.appendChild(input);
@@ -124,16 +128,26 @@ form.appendChild(cancel);
 form.appendChild(addTask);
 dialog.appendChild(form);
 
-
-    cancel.addEventListener('click', ()=>{
-        dialog.close()
+    cancel.addEventListener('click', ()=>{dialog.close()});
+    addTask.addEventListener('click', ()=>{
+        store.push(input.value),
+        dialog.close(),
+        cards();
+        
     });
-    
 
 return display.appendChild(dialog)
 };
  
+/*************store the user input*/
+const store = [];
+
+function storage() {
+    return store.toString()
+    
+};
 
 
-export { populate };
+
+export { populate, storage };
 
