@@ -12,8 +12,10 @@
     header.textContent = "Let's Plan";
     display.appendChild(header);
     display.appendChild(article);
+
     import Icon from './house.jpg';
-    import  {cards,toDay,searcH,inboxx,projects,teams}  from './display';
+    // import  {cards,toDay,searcH,inboxx,projects,teams}  from './display';
+    import { projects,cards } from './display';
 
 
 /*******Application Logic ********/
@@ -122,101 +124,88 @@ function populate(){
     
 /*****create modal for user input******/
 function newTask() {
-const dialog = document.createElement('dialog');
-const form = document.createElement('form');
-const input = document.createElement('input');
-const selections = document.createElement('div');
-const dueDate = document.createElement('button');
-const priority = document.createElement('select');
-const priority1 = document.createElement('option');
-const priority2 = document.createElement('option');
-const priority3 = document.createElement('option');
-const category = document.createElement('select');
-const category1 = document.createElement('option');
-const category2 = document.createElement('option');
-const category3 = document.createElement('option');
-const category4 = document.createElement('option');
-const addbtns = document.createElement('div')
-const cancel = document.createElement('button');
-const addTask = document.createElement('button');
+    const dialog = document.createElement('dialog');
+    const form = document.createElement('form');
+    const input = document.createElement('input');
+    const selections = document.createElement('div');
+    const dueDate = document.createElement('button');
+    // const priority = document.createElement('select');
+    // const priority1 = document.createElement('option');
+    // const priority2 = document.createElement('option');
+    // const priority3 = document.createElement('option');
+    const category = document.createElement('select');
+    const category1 = document.createElement('option');
+    const category2 = document.createElement('option');
+    const category3 = document.createElement('option');
+    const category4 = document.createElement('option');
+    const addbtns = document.createElement('div')
+    const cancel = document.createElement('button');
+    const addTask = document.createElement('button');
 
-dialog.id = 'favDialog';
-selections.className = 'selections';
-addbtns.className = 'addbtns';
-dueDate.textContent = 'DueDate';
-cancel.textContent = 'Cancel';
-addTask.textContent = 'Add';
-priority1.textContent = 'Low';
-priority2.textContent = 'Medium'
-priority3.textContent = 'High'
-category1.textContent = 'Category';
-category2.textContent = 'Team';
-category3.textContent = 'Work';
-category4.textContent = 'My Projects';
+    dialog.id = 'favDialog';
+    selections.className = 'selections';
+    addbtns.className = 'addbtns';
+    dueDate.textContent = 'DueDate';
+    cancel.textContent = 'Cancel';
+    addTask.textContent = 'Add';
+    // priority1.textContent = 'Low';
+    // priority2.textContent = 'Medium'
+    // priority3.textContent = 'High'
+    category1.textContent = 'Category';
+    category2.textContent = 'Team';
+    category3.textContent = 'Work';
+    category4.textContent = 'My Projects';
 
-priority.appendChild(priority1);
-priority.appendChild(priority2);
-priority.appendChild(priority3);
-category.appendChild(category1);
-category.appendChild(category2);
-category.appendChild(category3);
-category.appendChild(category4);
-form.appendChild(input);
-selections.appendChild(dueDate);
-//selections.appendChild(priority);
-selections.appendChild(category);
-addbtns.appendChild(cancel);
-addbtns.appendChild(addTask);
-form.appendChild(selections);
-form.appendChild(addbtns)
-dialog.appendChild(form);
+    // priority.appendChild(priority1);
+    // priority.appendChild(priority2);
+    // priority.appendChild(priority3);
+    category.appendChild(category1);
+    category.appendChild(category2);
+    category.appendChild(category3);
+    category.appendChild(category4);
+    form.appendChild(input);
+    selections.appendChild(dueDate);
+    //selections.appendChild(priority);
+    selections.appendChild(category);
+    addbtns.appendChild(cancel);
+    addbtns.appendChild(addTask);
+    form.appendChild(selections);
+    form.appendChild(addbtns)
+    dialog.appendChild(form);
 
-addTask.addEventListener('click', ()=>{
-    const selectEl = dialog.querySelector("select");
-
-        selectEl.addEventListener("change", (e) => {
-            e.preventDefault()
+        const selectEl = dialog.querySelector("select");
+        selectEl.addEventListener("change", () => {
             if (selectEl.value==='My Projects') {
-               projectsStore.push(input.value)
+                projectsStore.push(input.value)
+            }else {
+                console.log('hoo')
             }
-            else if (selectEl.value==='Team') {
-                teamStore.push(selectEl.value)
-            } else {
-                workStore.push(selectEl.value)
-            }
+        });
+
+    addTask.addEventListener('click', ()=>{
+            store.push(input.value)
+            dialog.close()
+            cards();
+
             
+            console.log(projectsStore)
     });
 
-        store.push(input.value),
-      //  store2.push(input.value),
-        dialog.close(),
-        cards();
+    cancel.addEventListener('click', ()=>{dialog.close()});
 
-        console.log(store)
-        console.log(projectsStore)
-        console.log(storage())
-        //console.log(workStore)
-    });
-
-        cancel.addEventListener('click', ()=>{dialog.close()});
-
-return display.appendChild(dialog)
+    return display.appendChild(dialog)
 };
  
 /*************store the user input*/
 const store = [];
+
 const projectsStore= [];
-const teamStore = [];
-const workStore = [];
+
 
 function storage() {   
   const one = store.pop()
  return one
 };
-function storage2() {   
-    const two = projectsStore
-   return two
-  };
 
-export { populate, storage, storage2};
+export { populate, storage, projectsStore};
 
