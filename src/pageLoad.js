@@ -4,12 +4,15 @@
     const list = document.createElement('ul');
     const display = document.createElement('div');
     const header = document.createElement('h1');
+    const time = document.createElement('p');
     const article = document.createElement('div');
     list.id = 'list';
     display.id = 'display';
     article.id = 'article';
     header.id = 'header';
     header.textContent = "Let's Plan";
+    time.textContent = 'Session started at: ' + new Date
+    display.appendChild(time)
     display.appendChild(header);
     display.appendChild(article);
 
@@ -113,7 +116,7 @@ function newTask() {
     const form = document.createElement('form');
     const input = document.createElement('input');
     const selections = document.createElement('div');
-    const dueDate = document.createElement('button');
+    const dueDate = document.createElement('input');
     // const priority = document.createElement('select');
     // const priority1 = document.createElement('option');
     // const priority2 = document.createElement('option');
@@ -130,7 +133,10 @@ function newTask() {
     dialog.id = 'favDialog';
     selections.className = 'selections';
     addbtns.className = 'addbtns';
-    dueDate.textContent = 'DueDate';
+    input.placeholder = 'Type here...'
+    input.className = 'input'
+    dueDate.placeholder = 'Due';
+    dueDate.type = 'date'
     cancel.textContent = 'Cancel';
     addTask.textContent = 'Add';
     // priority1.textContent = 'Low';
@@ -165,18 +171,17 @@ function newTask() {
             }else if (selectEl.value==='Team') {
                 teamStore.push(input.value)
             } else {
-                console.log('hoo')
+                console.log('Task not urgent')
             }
         });
 
     addTask.addEventListener('click', ()=>{
             store.push(input.value)
+            date.push(dueDate.value)
+
             inboxStore.push(input.value)
             dialog.close()
-            cards();
-
-            
-            console.log(projectsStore)
+            cards();                       
     });
 
     cancel.addEventListener('click', ()=>{dialog.close()});
@@ -189,12 +194,12 @@ const store = [];
 const projectsStore= [];
 const teamStore = [];
 const inboxStore = []
-
+const date = []
 
 function storage() {   
   const one = store.pop()
  return one
 };
 
-export { populate, storage, projectsStore, teamStore, inboxStore};
+export { populate, storage, projectsStore, teamStore, inboxStore, date};
 
