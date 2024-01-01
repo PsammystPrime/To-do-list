@@ -91,6 +91,9 @@ form{
 input{
     border-radius: 10px;
 }
+.input{
+    width: 30em;
+}
 .selections{
     display: flex;
     gap: 5px;

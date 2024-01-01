@@ -1,4 +1,4 @@
-import { storage, projectsStore, teamStore, inboxStore } from './pageLoad';
+import { storage, projectsStore, teamStore, inboxStore, date } from './pageLoad';
 /******Displays new cards*///////
 
 function cards() {   
@@ -17,7 +17,7 @@ card.id = 'card'
 cardDetails.id = 'details'
 cardBtn.textContent = 'X';
 cardName.textContent = storage()//'Put details here' 
-cardTime.textContent = 'Due: 9:00 am'
+cardTime.textContent = 'Due:  ' + date
 
 cardDetails.appendChild(cardName);
 cardDetails.appendChild(cardTime);
@@ -68,7 +68,6 @@ function inboxx() {
     header.textContent = 'Inbox';
     article.textContent= '';
 
-    console.log(inboxStore)
     inboxStore.forEach(function(project){
   
       const card = document.createElement('article');
@@ -80,7 +79,7 @@ function inboxx() {
       cardDetails.id = 'details'
       cardBtn.textContent = 'X';
       cardName.textContent = project//'Put details here' 
-      cardTime.textContent = 'Due: 3:00 am'
+      cardTime.textContent = 'Due:  ' + new Date
       
       cardDetails.appendChild(cardName);
       cardDetails.appendChild(cardTime);
@@ -92,7 +91,6 @@ function inboxx() {
           article.removeChild(card)
           let go = inboxStore.indexOf(project)
           inboxStore.splice(go)
-          console.log(inboxStore)
         })
       
         article.appendChild(card)          
@@ -108,7 +106,6 @@ function projects() {
     header.textContent = 'My Projects';
     article.textContent = ''
 
-
     projectsStore.forEach(function(project){
   
       const card = document.createElement('article');
@@ -120,7 +117,7 @@ function projects() {
       cardDetails.id = 'details'
       cardBtn.textContent = 'X';
       cardName.textContent = project//'Put details here' 
-      cardTime.textContent = 'Due: 3:00 am'
+      cardTime.textContent = 'Due:  ' + new Date
       
       cardDetails.appendChild(cardName);
       cardDetails.appendChild(cardTime);
@@ -162,7 +159,7 @@ function teams() {
       cardDetails.id = 'details'
       cardBtn.textContent = 'X';
       cardName.textContent = project//'Put details here' 
-      cardTime.textContent = 'Due: 3:00 am'
+      cardTime.textContent = 'Due: ' + new Date
       
       cardDetails.appendChild(cardName);
       cardDetails.appendChild(cardTime);
