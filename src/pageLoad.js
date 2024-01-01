@@ -119,6 +119,7 @@ function populate(){
     container.appendChild(display);
     };
 
+    
 /*****create modal for user input******/
 function newTask() {
 const dialog = document.createElement('dialog');
@@ -134,6 +135,7 @@ const category = document.createElement('select');
 const category1 = document.createElement('option');
 const category2 = document.createElement('option');
 const category3 = document.createElement('option');
+const category4 = document.createElement('option');
 const addbtns = document.createElement('div')
 const cancel = document.createElement('button');
 const addTask = document.createElement('button');
@@ -147,9 +149,10 @@ addTask.textContent = 'Add';
 priority1.textContent = 'Low';
 priority2.textContent = 'Medium'
 priority3.textContent = 'High'
-category1.textContent = 'My Projects';
-category2.textContent = 'Team'
-category3.textContent = 'Work'
+category1.textContent = 'Category';
+category2.textContent = 'Team';
+category3.textContent = 'Work';
+category4.textContent = 'My Projects';
 
 priority.appendChild(priority1);
 priority.appendChild(priority2);
@@ -157,6 +160,7 @@ priority.appendChild(priority3);
 category.appendChild(category1);
 category.appendChild(category2);
 category.appendChild(category3);
+category.appendChild(category4);
 form.appendChild(input);
 selections.appendChild(dueDate);
 //selections.appendChild(priority);
@@ -167,39 +171,52 @@ form.appendChild(selections);
 form.appendChild(addbtns)
 dialog.appendChild(form);
 
+addTask.addEventListener('click', ()=>{
     const selectEl = dialog.querySelector("select");
-        selectEl.addEventListener("change", (e) => {
-        store2.push(selectEl.value);
 
-    cancel.addEventListener('click', ()=>{dialog.close()});
-    addTask.addEventListener('click', ()=>{
+        selectEl.addEventListener("change", (e) => {
+            e.preventDefault()
+            if (selectEl.value==='My Projects') {
+               projectsStore.push(input.value)
+            }
+            else if (selectEl.value==='Team') {
+                teamStore.push(selectEl.value)
+            } else {
+                workStore.push(selectEl.value)
+            }
+            
+    });
+
         store.push(input.value),
       //  store2.push(input.value),
         dialog.close(),
         cards();
 
         console.log(store)
-        console.log(store2)
-});
+        console.log(projectsStore)
+        console.log(storage())
+        //console.log(workStore)
     });
+
+        cancel.addEventListener('click', ()=>{dialog.close()});
 
 return display.appendChild(dialog)
 };
  
 /*************store the user input*/
 const store = [];
-const store2 = [];
+const projectsStore= [];
+const teamStore = [];
+const workStore = [];
 
 function storage() {   
-  let one = store.pop();
- 
+  const one = store.pop()
  return one
-    
-
-    
 };
+function storage2() {   
+    const two = projectsStore
+   return two
+  };
 
-
-
-export { populate, storage };
+export { populate, storage, storage2};
 
