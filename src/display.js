@@ -1,6 +1,6 @@
-import { storage } from "./pageLoad";
-
+import { storage,storage2 } from './pageLoad';
 /******Displays new cards*///////
+
 function cards() {   
 const article = document.getElementById('article');
 const header = document.getElementById('header');
@@ -30,7 +30,7 @@ card.appendChild(cardDetails);
     article.removeChild(card)
   })
 
- return  article.appendChild(card)
+  article.appendChild(card)
 };
 
 function searcH() {
@@ -77,20 +77,56 @@ function inboxx() {
     article.textContent= '';
     
 }
+
 function projects() {
+    
+    const projects = storage2()
     const article = document.getElementById('article');
     const header = document.getElementById('header');
     header.textContent = '';
     header.textContent = 'My Projects';
     article.textContent= '';
+    
+while (storage2.length -1) {
+        const card = document.createElement('article');
+    const cardBtn = document.createElement('button');
+    const cardDetails = document.createElement('div');
+    const cardName = document.createElement('p');
+    const cardTime = document.createElement('p');
+    card.id = 'card'
+    cardDetails.id = 'details'
+    cardBtn.textContent = 'X';
+    cardName.textContent = projects//'Put details here' 
+    cardTime.textContent = 'Due: 21:00 '
+    
+    cardDetails.appendChild(cardName);
+    cardDetails.appendChild(cardTime);
+    
+    card.appendChild(cardBtn);
+    card.appendChild(cardDetails);
+     
+    
+      cardBtn.addEventListener('click', ()=>{
+        article.removeChild(card)
+      })
+    
+      article.appendChild(card)
 }
+
+  /*  const cardDetails = document.createElement('div');
+    cardDetails.textContent = storage2()
+    article.appendChild(cardDetails)*/
+
+          
+};
 function teams() {
     const article = document.getElementById('article');
     const header = document.getElementById('header');
     header.textContent = '';
     header.textContent = 'Team';
     article.textContent= '';
-}
+
+};
 
 export {cards, toDay,searcH,inboxx,projects,teams}
 
