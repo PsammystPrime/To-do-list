@@ -1,4 +1,4 @@
-import { storage, projectsStore, teamStore } from './pageLoad';
+import { storage, projectsStore, teamStore, inboxStore } from './pageLoad';
 /******Displays new cards*///////
 
 function cards() {   
@@ -33,14 +33,6 @@ card.appendChild(cardDetails);
   article.appendChild(card)
 };
 
-// function searcH() {
-//     const article = document.getElementById('article');
-//     const header = document.getElementById('header');
-//     header.textContent = '';
-//     header.textContent = 'Search';
-//     article.textContent= '';
-// }
-
 // function toDay() {
 //     const article = document.getElementById('article');
 //     const header = document.getElementById('header');
@@ -69,14 +61,44 @@ card.appendChild(cardDetails);
     
 // }
 
-// function inboxx() {
-//     const article = document.getElementById('article');
-//     const header = document.getElementById('header');
-//     header.textContent = '';
-//     header.textContent = 'Inbox';
-//     article.textContent= '';
+function inboxx() {
+    const article = document.getElementById('article');
+    const header = document.getElementById('header');
+    header.textContent = '';
+    header.textContent = 'Inbox';
+    article.textContent= '';
+
+    console.log(inboxStore)
+    inboxStore.forEach(function(project){
+  
+      const card = document.createElement('article');
+      const cardBtn = document.createElement('button');
+      const cardDetails = document.createElement('div');
+      const cardName = document.createElement('p');
+      const cardTime = document.createElement('p');
+      card.id = 'card'
+      cardDetails.id = 'details'
+      cardBtn.textContent = 'X';
+      cardName.textContent = project//'Put details here' 
+      cardTime.textContent = 'Due: 3:00 am'
+      
+      cardDetails.appendChild(cardName);
+      cardDetails.appendChild(cardTime);
+      
+      card.appendChild(cardBtn);
+      card.appendChild(cardDetails);
+      
+        cardBtn.addEventListener('click', ()=>{
+          article.removeChild(card)
+          let go = inboxStore.indexOf(project)
+          inboxStore.splice(go)
+          console.log(inboxStore)
+        })
+      
+        article.appendChild(card)          
+    });
     
-// }
+}
 
 function projects() {
     
@@ -109,6 +131,10 @@ function projects() {
       
         cardBtn.addEventListener('click', ()=>{
           article.removeChild(card)
+          let go = projectsStore.indexOf(project)
+          let goo = inboxStore.indexOf(project)
+          projectsStore.splice(go)
+          inboxStore.splice(goo)
         })
       
         article.appendChild(card)
@@ -147,6 +173,10 @@ function teams() {
       
         cardBtn.addEventListener('click', ()=>{
           article.removeChild(card)
+          let go = teamStore.indexOf(project)
+          let goo = inboxStore.indexOf(project)
+          teamStore.splice(go)
+          inboxStore.splice(goo)
         })
       
         article.appendChild(card)
@@ -154,7 +184,6 @@ function teams() {
 
 };
 
-// export {cards, toDay,searcH,inboxx,projects,teams}
-export{cards,projects,teams}
+export{cards,projects,teams,inboxx}
 
 
