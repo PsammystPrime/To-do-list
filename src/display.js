@@ -33,7 +33,8 @@ card.appendChild(cardDetails);
   article.appendChild(card)
 };
 
-// function toDay() {
+ function toDay() {
+   alert ('Not set')
 //     const article = document.getElementById('article');
 //     const header = document.getElementById('header');
 //     header.textContent = '';
@@ -59,7 +60,7 @@ card.appendChild(cardDetails);
 //     article.appendChild(bottomSlide);
 
     
-// }
+ }
 
 function inboxx() {
     const article = document.getElementById('article');
@@ -181,6 +182,6 @@ function teams() {
 
 };
 
-export{cards,projects,teams,inboxx}
+export{cards,projects,teams,inboxx, toDay}
 
 

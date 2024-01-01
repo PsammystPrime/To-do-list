@@ -17,7 +17,7 @@
     display.appendChild(article);
 
     import Icon from './house.jpg';
-    import { projects,cards,teams,inboxx } from './display';
+    import { projects,cards,teams,inboxx, toDay } from './display';
 
 
 /*******Application Logic ********/
@@ -89,6 +89,9 @@ function populate(){
     list.appendChild(myProjects);
     list.appendChild(team);
     
+    admin.addEventListener('click',()=>{
+        alert("Ooops!! That's for the Admin only")
+    })
     taskName.addEventListener('click',()=>{
         newTask().showModal()
     });
