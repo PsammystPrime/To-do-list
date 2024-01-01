@@ -14,8 +14,7 @@
     display.appendChild(article);
 
     import Icon from './house.jpg';
-    // import  {cards,toDay,searcH,inboxx,projects,teams}  from './display';
-    import { projects,cards } from './display';
+    import { projects,cards,teams } from './display';
 
 
 /*******Application Logic ********/
@@ -177,7 +176,9 @@ function newTask() {
         selectEl.addEventListener("change", () => {
             if (selectEl.value==='My Projects') {
                 projectsStore.push(input.value)
-            }else {
+            }else if (selectEl.value==='Team') {
+                teamStore.push(input.value)
+            } else {
                 console.log('hoo')
             }
         });
@@ -198,8 +199,8 @@ function newTask() {
  
 /*************store the user input*/
 const store = [];
-
 const projectsStore= [];
+const teamStore = []
 
 
 function storage() {   
@@ -207,5 +208,5 @@ function storage() {
  return one
 };
 
-export { populate, storage, projectsStore};
+export { populate, storage, projectsStore, teamStore};
 
