@@ -14,7 +14,7 @@
     display.appendChild(article);
 
     import Icon from './house.jpg';
-    import { projects,cards,teams } from './display';
+    import { projects,cards,teams,inboxx } from './display';
 
 
 /*******Application Logic ********/
@@ -38,16 +38,6 @@ function populate(){
     taskName.href = '#'
     task.appendChild(taskImg);
     task.appendChild(taskName);
-    
-    const search = document.createElement('li');
-    const searchImg = document.createElement('img');
-    const searchName = document.createElement('a');
-    searchImg.id = 'nav'
-    searchImg.src = Icon
-    searchName.textContent = 'Search'
-    searchName.href = '#'
-    search.appendChild(searchImg);
-    search.appendChild(searchName);
     
     const today = document.createElement('li');
     const todayImg = document.createElement('img');
@@ -91,15 +81,11 @@ function populate(){
     
     list.appendChild(admin);
     list.appendChild(task);
-    list.appendChild(search);
     list.appendChild(today);
     list.appendChild(inbox);
     list.appendChild(myProjects);
     list.appendChild(team);
     
-    searchName.addEventListener('click',()=>{
-       searcH();
-    })
     taskName.addEventListener('click',()=>{
         newTask().showModal()
     });
@@ -185,6 +171,7 @@ function newTask() {
 
     addTask.addEventListener('click', ()=>{
             store.push(input.value)
+            inboxStore.push(input.value)
             dialog.close()
             cards();
 
@@ -200,7 +187,8 @@ function newTask() {
 /*************store the user input*/
 const store = [];
 const projectsStore= [];
-const teamStore = []
+const teamStore = [];
+const inboxStore = []
 
 
 function storage() {   
@@ -208,5 +196,5 @@ function storage() {
  return one
 };
 
-export { populate, storage, projectsStore, teamStore};
+export { populate, storage, projectsStore, teamStore, inboxStore};
 
