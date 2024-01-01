@@ -2,6 +2,7 @@ import {populate } from './pageLoad';
 import Icon from './house.jpg';
 import './style.css';
 import { compareAsc, format, isToday, isTomorrow, toDate } from 'date-fns'
+import { toDay } from './display';
 
 format(new Date(2014, 1, 11), 'yyyy-MM-dd')
 //=> '2014-02-11'
@@ -19,12 +20,11 @@ dates.sort(compareAsc)
 // ]
 
 
-const date = new Date(isToday())
+
 
 
 window.addEventListener('DOMContentLoaded',()=>{
   populate()
-  console.log(date)
 });
 
 
