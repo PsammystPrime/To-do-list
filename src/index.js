@@ -1,9 +1,10 @@
 import {populate } from './pageLoad';
 import Icon from './house.jpg';
 import './style.css';
-import { compareAsc, format } from 'date-fns'
+import { compareAsc, format, getDate, isToday, isTomorrow, toDate, toDay } from 'date-fns'
+// import { toDay } from './display';
 
-format(new Date(2014, 1, 11), 'yyyy-MM-dd')
+
 //=> '2014-02-11'
 
 const dates = [
@@ -23,7 +24,9 @@ dates.sort(compareAsc)
 
 
 window.addEventListener('DOMContentLoaded',()=>{
+
   populate()
+
 });
 
 
