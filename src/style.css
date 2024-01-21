@@ -1,5 +1,17 @@
 body{
-    background-color: bisque;
+    animation-name: color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    /* background-color: rgb(231, 127, 7); */
+}
+@keyframes color{
+    from{
+        background-color: rgb(231, 127, 7);
+    }
+    to{
+        background-color: cadetblue;
+    }
 }
 #favDialog::backdrop{
     background-image: linear-gradient(
@@ -24,7 +36,8 @@ body{
     display: flex;
     flex-direction: column;
     gap: 30px;
-
+    border-radius: 7px;
+    padding-bottom: 10px;
 }
 #display{
     grid-column: 2 / 9;
@@ -44,6 +57,7 @@ font-size: large;
 font-style: oblique;
 font-family: sans-serif;
 text-align-last: left;
+
 
 }
 li{
@@ -74,6 +88,7 @@ li:hover{
     align-items: flex-start;
     padding: 5px;
     overflow-wrap: normal;
+    border-radius: 5px;
    
     
 }
