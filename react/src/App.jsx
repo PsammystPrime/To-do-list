@@ -1,6 +1,7 @@
 import "./App.css";
 import logo from "/logo.png";
 import pana from "/pana.jpg";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
         Manage <br />
         your <br /> Task with <br /> <a className="daytask">DayTask</a>
       </p>
-      <button>Let's Start</button>
+      <Link to="login">
+        <button>Let&apos;s Start </button>
+      </Link>
     </main>
   );
 }
