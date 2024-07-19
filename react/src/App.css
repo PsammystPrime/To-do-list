@@ -28,3 +28,45 @@ p {
   font-weight: bolder;
   color: #ffffff;
 }
+
+/*                                 Login Page */
+form {
+  display: flex;
+  flex-direction: column;
+  /* gap: 2px; */
+}
+form > input {
+  min-height: 3em;
+  min-width: 19rem;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+form > h6 {
+  align-self: flex-end;
+  color: #8b8585;
+}
+button {
+  border: none;
+}
+.login,
+.google {
+  font-weight: bolder;
+  font-size: medium;
+  border-radius: 4px;
+}
+section > p {
+  font-size: medium;
+}
+.google {
+  background-color: #212832;
+  border: 2px solid white;
+  color: white;
+}
+main > p {
+  color: ;
+  font-size: small;
+  align-self: center;
+}
+a {
+  text-decoration: none;
+}
