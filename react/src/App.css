@@ -50,13 +50,20 @@ form {
 form > input {
   min-height: 3em;
   min-width: 19rem;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   margin-top: 5px;
+  padding-left: 10px;
   background-color: #455a64;
   border: none;
 }
-form > h6 {
+input::placeholder {
+  color: #ffffff;
+}
+form > span {
   align-self: flex-end;
+  margin: 0 0 30px 0;
+  font-size: small;
+  font-weight: 600;
 }
 button {
   border: none;
@@ -67,6 +74,15 @@ button {
   font-size: medium;
   border-radius: 4px;
 }
+.links {
+  display: flex;
+  flex-direction: column;
+}
+.start:hover,
+.login:hover {
+  background-color: rgb(19, 148, 77);
+  color: #ffffff;
+}
 section {
   display: flex;
 }
@@ -74,20 +90,22 @@ section > p {
   font-size: medium;
   padding-right: 13px;
   padding-left: 13px;
+  color: #8caab9;
 }
 hr {
   width: 90px;
   height: 0;
   align-self: center;
+  border: 0.1px solid #8caab9;
 }
 
 .google {
   background-color: #212832;
   border: 2px solid white;
-  color: white;
+  color: #ffffff;
 }
 main > div > p {
-  /* color: ; */
+  color: #8caab9;
   font-size: small;
   align-self: center;
 }
