@@ -37,6 +37,7 @@ p {
   margin: 20px 20px 30px 20px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .login-logo {
   width: 130px;
@@ -112,3 +113,5 @@ main > div > p {
 a {
   text-decoration: none;
 }
+
+/*                                              Signup Page */

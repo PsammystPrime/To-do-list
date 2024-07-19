@@ -14,7 +14,7 @@ export function LoginPage() {
           <label htmlFor="password">Password</label>
           <input type="password" name="" id="" />
           <span>Forgot Passsword?</span>
-          <Link to={"homepage"} className="links">
+          <Link to={"/homepage"} className="links">
             <button type="submit" className="login">
               Log In
             </button>
@@ -28,7 +28,7 @@ export function LoginPage() {
         <button className="google">Google</button>
         <p>
           Don&apos;t have an account?{" "}
-          <Link to={"signup"}>
+          <Link to={"/signup"}>
             <a>Sign Up</a>
           </Link>
         </p>
@@ -67,8 +67,12 @@ export function Signup() {
             Confirm Password
           </label>
           <input type="password" name="" id="" />
-          <span>Forgot Passsword?</span>
-          <Link to={"/signup"} className="links">
+          <span className="signup">
+            <input type="checkbox" name="yes" id="" className="checkbox" />
+            {""}I have read and agreed to DayTask {""}
+            <a>Privacy Policy, Terms and Conditions</a>
+          </span>
+          <Link to={"/homepage"} className="links">
             <button type="submit" className="login">
               Sign up
             </button>
