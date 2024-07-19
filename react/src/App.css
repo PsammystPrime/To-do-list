@@ -50,6 +50,8 @@ form > input {
   min-width: 19rem;
   margin-bottom: 5px;
   margin-top: 5px;
+  /* background-color: #1a1a1a; */
+  border: none;
 }
 form > h6 {
   align-self: flex-end;
@@ -64,9 +66,20 @@ button {
   font-size: medium;
   border-radius: 4px;
 }
+section {
+  display: flex;
+}
 section > p {
   font-size: medium;
+  padding-right: 13px;
+  padding-left: 13px;
 }
+hr {
+  width: 90px;
+  height: 0;
+  align-self: center;
+}
+
 .google {
   background-color: #212832;
   border: 2px solid white;
