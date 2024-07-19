@@ -30,6 +30,16 @@ p {
 }
 
 /*                                 Login Page */
+.login-container {
+  /* background-color: red; */
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.login-logo {
+  width: 130px;
+  align-self: center;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -62,8 +72,8 @@ section > p {
   border: 2px solid white;
   color: white;
 }
-main > p {
-  color: ;
+main > div > p {
+  /* color: ; */
   font-size: small;
   align-self: center;
 }
