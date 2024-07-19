@@ -17,6 +17,9 @@ main {
 a {
   color: #fed36a;
 }
+a:hover {
+  text-decoration: underline;
+}
 button {
   background-color: #fed36a;
   color: #1a1a1a;
@@ -56,6 +59,7 @@ form > input {
   padding-left: 10px;
   background-color: #455a64;
   border: none;
+  color: #ffffff;
 }
 input::placeholder {
   color: #ffffff;
@@ -68,6 +72,7 @@ form > span {
 }
 button {
   border: none;
+  text-decoration: none;
 }
 .login,
 .google {
@@ -99,7 +104,6 @@ hr {
   align-self: center;
   border: 0.1px solid #8caab9;
 }
-
 .google {
   background-color: #212832;
   border: 2px solid white;
