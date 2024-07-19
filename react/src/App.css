@@ -31,8 +31,7 @@ p {
 
 /*                                 Login Page */
 .login-container {
-  /* background-color: red; */
-  margin: 20px;
+  margin: 20px 20px 30px 20px;
   display: flex;
   flex-direction: column;
 }
