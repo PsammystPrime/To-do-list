@@ -12,8 +12,8 @@ function App() {
         Manage <br />
         your <br /> Task with <br /> <a className="daytask">DayTask</a>
       </p>
-      <Link to="login">
-        <button>Let&apos;s Start </button>
+      <Link to="login" className="links">
+        <button className="start">Let&apos;s Start </button>
       </Link>
     </main>
   );
