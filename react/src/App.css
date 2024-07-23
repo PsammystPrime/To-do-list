@@ -118,4 +118,29 @@ a {
   text-decoration: none;
 }
 
-/*                                              Signup Page */
+/*                                              Home Page */
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #fed36a; */
+}
+.profile-pic {
+  height: 60px;
+}
+.greetings > span {
+  font-size: smaller;
+}
+h2 {
+  margin-top: 0px;
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+.search > button {
+  height: 35px;
+}
+#search {
+  height: 35px;
+}
