@@ -123,10 +123,12 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 50px;
+  margin-bottom: 9px;
   /* background-color: #fed36a; */
 }
 .profile-pic {
-  height: 60px;
+  height: 50px;
 }
 .greetings > span {
   font-size: smaller;
@@ -143,4 +145,16 @@ h2 {
 }
 #search {
   height: 35px;
+  width: 37vw;
+}
+/* Completed Tasks */
+section {
+  /* background-color: #fed36a; */
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+section h3 {
+  font-size: larger;
+  font-weight: 900;
 }

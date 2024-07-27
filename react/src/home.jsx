@@ -5,14 +5,13 @@ export default function Home() {
   function Task(key, title, status) {
     (this.title = title), (this.status = status), (this.key = key);
   }
-  const tsk1 = new Task(0, "design", "complete");
-  const tsk2 = new Task(1, "write", "incomplete");
-  const tsk3 = new Task(2, "docs", "incomplete");
+  const task1 = new Task(0, "designr", "complete");
+  const task2 = new Task(1, "write", "incomplete");
+  const task3 = new Task(2, "docs", "incomplete");
   // create array and store the tasks
   const taskArray = [];
-  taskArray.push(tsk1, tsk2, tsk3);
-  console.log(taskArray);
-
+  taskArray.push(task1, task2, task3);
+  //map the itemsArray into an another array and the tags each item will take
   const listItems = taskArray.map((task) => (
     <li key={task.key}>
       <h3>{task.title}</h3>
@@ -21,6 +20,7 @@ export default function Home() {
     </li>
   ));
 
+  // display the output
   return (
     <main>
       <div className="home-container">
@@ -54,14 +54,3 @@ export default function Home() {
     </main>
   );
 }
-
-// const listItems = taskArray.map((person) => (
-//   <li key={person.key}>
-//     <p>
-//       <b>{person.title}:</b>
-//       {" " + person.status + " "}
-//       known for {person.accomplishment}
-//     </p>
-//   </li>
-// ));
-// return <ul>{listItems}</ul>;
