@@ -125,6 +125,7 @@ a {
   align-items: center;
   gap: 50px;
   margin-bottom: 9px;
+  color: #fed36a;
   /* background-color: #fed36a; */
 }
 .profile-pic {
@@ -135,10 +136,13 @@ a {
 }
 h2 {
   margin-top: 0px;
+  color: #ffffff;
 }
-.search {
+.search,
+.complete {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .search > button {
   height: 35px;
@@ -147,14 +151,45 @@ h2 {
   height: 35px;
   width: 37vw;
 }
-/* Completed Tasks */
-section {
-  /* background-color: #fed36a; */
-  margin-top: 5px;
+/* Completed Tasks Section*/
+.complete > h4 {
+  color: #ffffff;
+}
+.complete > button {
+  background-color: #212832;
+  color: #fed36a;
+}
+ul {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
+  list-style-type: none;
+  padding-left: 0;
 }
-section h3 {
+li {
+  align-content: space-around;
+  padding-left: 10px;
+  background-color: #455a64;
+  margin-top: 5px;
+  color: #ffffff;
+  min-width: 150px;
+  min-height: 150px;
+}
+li:hover {
+  background-color: #fed36a;
+  color: #1a1a1a;
+}
+li > h3 {
   font-size: larger;
   font-weight: 900;
+}
+li > span {
+  font-size: smaller;
+}
+li > p {
+  color: #ffffff;
+  font-size: small;
+}
+li:hover > p {
+  color: #1a1a1a;
 }
