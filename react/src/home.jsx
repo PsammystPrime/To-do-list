@@ -5,9 +5,9 @@ export default function Home() {
   function Task(key, title, status) {
     (this.title = title), (this.status = status), (this.key = key);
   }
-  const task1 = new Task(0, "designr", "complete");
-  const task2 = new Task(1, "write", "incomplete");
-  const task3 = new Task(2, "docs", "incomplete");
+  const task1 = new Task(0, "Real Estate Website Design", "complete");
+  const task2 = new Task(1, "Finance Mobile App Design", "incomplete");
+  const task3 = new Task(2, "To do list Analytics Integrations", "incomplete");
   // create array and store the tasks
   const taskArray = [];
   taskArray.push(task1, task2, task3);
