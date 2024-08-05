@@ -46,11 +46,22 @@ export default function Home() {
         </div>
 
         {/* Ongoing Tasks */}
-        <div className="ongoing">
+        {/* <div className="ongoing">
           <h4>Ongoing Projects</h4>
           <button>See all</button>
-        </div>
+        </div>*/}
       </div>
+      <button onClick={NewTask}>New Task</button>
     </main>
+  );
+}
+
+export function NewTask() {
+  // renders a modal for user input
+  console.log("task added");
+  return (
+    <dialog open>
+      <p>hello</p>
+    </dialog>
   );
 }
