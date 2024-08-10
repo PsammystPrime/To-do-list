@@ -119,3 +119,10 @@ a {
 }
 
 /*                                              Signup Page */
+
+/* Dialog Modal */
+dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
