@@ -63,20 +63,91 @@ export default function Home() {
 }
 
 export function NewTask() {
-  // renders a modal for user input
-  console.log("task added");
+  function addTask(e) {
+    // Prevent the browser from reloading the page
+    e.preventDefault();
+
+    // Read the form data
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // You can pass formData as a fetch body directly:
+    fetch("/some-api", { method: form.method, body: formData });
+
+    // Or you can work with it as a plain object:
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+  }
   return (
     <dialog open>
       <h2>Create a New Task</h2>
-      <label htmlFor="title">Title</label>
-      <input type="text" name="" id="" placeholder="Psammyst Prime" />
-      <label htmlFor="details">Details</label>
-      <input type="text" placeholder="lorem ipsum dolorem" />
-      <label htmlFor="date">Date and Time</label>
-      <input type="time" name="" id="" />
-      <input type="date" name="" id="" />
-      <button type="submit">Add</button>
-      <button type="reset">Cancel</button>
+      <form action="post" onSubmit={addTask}>
+        <label htmlFor="title">Title </label>
+        <input type="text" name="name" defaultValue={"sam"} />
+
+        <label htmlFor="details">Details</label>
+        <input type="text" name="details" defaultValue={"info"} />
+
+        <label htmlFor="date">Date and Time</label>
+        <input type="time" name="time" id="" defaultValue={"12:00:00"} />
+        <input type="date" name="date" id="" defaultValue={"2024-03-01"} />
+        <Link to="/homepage">
+          <button type="reset">Cancel</button>
+        </Link>
+        <button type="submit">Add</button>
+      </form>
     </dialog>
   );
 }
+// export function NewTasks() {
+//   function handleSubmit(e) {
+//     // Prevent the browser from reloading the page
+//     e.preventDefault();
+
+//     // Read the form data
+//     const form = e.target;
+//     const formData = new FormData(form);
+
+//     // You can pass formData as a fetch body directly:
+//     fetch("/some-api", { method: form.method, body: formData });
+
+//     // Or you can work with it as a plain object:
+//     const formJson = Object.fromEntries(formData.entries());
+//     console.log(formJson);
+//   }
+
+//   return (
+//     <form method="post" onSubmit={handleSubmit}>
+//       <label>
+//         Text input: <input name="myInput" defaultValue="Some initial value" />
+//       </label>
+//       <hr />
+//       <label>
+//         Checkbox:{" "}
+//         <input type="checkbox" name="myCheckbox" defaultChecked={true} />
+//       </label>
+//       <hr />
+//       <p>
+//         Radio buttons:
+//         <label>
+//           <input type="radio" name="myRadio" value="option1" /> Option 1
+//         </label>
+//         <label>
+//           <input
+//             type="radio"
+//             name="myRadio"
+//             value="option2"
+//             defaultChecked={true}
+//           />{" "}
+//           Option 2
+//         </label>
+//         <label>
+//           <input type="radio" name="myRadio" value="option3" /> Option 3
+//         </label>
+//       </p>
+//       <hr />
+//       <button type="reset">Reset form</button>
+//       <button type="submit">Submit form</button>
+//     </form>
+//   );
+// }
