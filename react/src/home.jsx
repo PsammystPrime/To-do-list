@@ -1,6 +1,7 @@
 // export default function Home() {
 //   return <p>homepage Coming Next</p>;
 // }
+import { Link } from "react-router-dom";
 import profile from "/profile1.png";
 
 export default function Home() {
@@ -54,7 +55,9 @@ export default function Home() {
           <button>See all</button>
         </div>*/}
       </div>
-      <button onClick={NewTask}>New Task</button>
+      <Link to="/new">
+        <button onClick={NewTask}>New Task</button>
+      </Link>
     </main>
   );
 }
@@ -64,7 +67,16 @@ export function NewTask() {
   console.log("task added");
   return (
     <dialog open>
-      <p>hello</p>
+      <h2>Create a New Task</h2>
+      <label htmlFor="title">Title</label>
+      <input type="text" name="" id="" placeholder="Psammyst Prime" />
+      <label htmlFor="details">Details</label>
+      <input type="text" placeholder="lorem ipsum dolorem" />
+      <label htmlFor="date">Date and Time</label>
+      <input type="time" name="" id="" />
+      <input type="date" name="" id="" />
+      <button type="submit">Add</button>
+      <button type="reset">Cancel</button>
     </dialog>
   );
 }
