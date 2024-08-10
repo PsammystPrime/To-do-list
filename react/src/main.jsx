@@ -4,13 +4,14 @@ import App from "./App.jsx";
 import "./index.css";
 import Login, { Signup } from "./login.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./home.jsx";
+import Home, { NewTask } from "./home.jsx";
 
 const route = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "login", element: <Login /> },
   { path: "signup", element: <Signup /> },
   { path: "homepage", element: <Home /> },
+  { path: "new", element: <NewTask /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
