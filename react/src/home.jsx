@@ -69,15 +69,17 @@ export function NewTask() {
     const form = e.target;
     const formData = new FormData(form);
 
-    // You can pass formData as a fetch body directly:
-    // fetch("/some-api", { method: form.method, body: formData });
-
     // Or you can work with it as a plain object:
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-    console.log(formJson.name);
-  }
 
+    // Create a task object to store the Taskdata. This object should be exported to another component
+    const taskObject = {
+      taskName: formJson.name,
+      taskDetails: formJson.details,
+    };
+    console.log(taskObject);
+  }
+  //Gives a notification for a successfull task addition
   const [confirm, setConfirmation] = useState("");
   function confirmTask() {
     return setConfirmation("task added");
