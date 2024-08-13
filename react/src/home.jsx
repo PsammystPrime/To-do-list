@@ -60,6 +60,9 @@ export default function Home() {
   );
 }
 
+//create an array to store the task objects
+const taskArray = [];
+
 export function NewTask() {
   function addTask(e) {
     // Prevent the browser from reloading the page
@@ -77,7 +80,12 @@ export function NewTask() {
       taskName: formJson.name,
       taskDetails: formJson.details,
     };
+    console.log(taskArray);
     console.log(taskObject);
+
+    //push the task object to the task array for storage
+    taskArray.push(taskObject);
+    console.log(taskArray);
   }
   //Gives a notification for a successfull task addition
   const [confirm, setConfirmation] = useState("");
