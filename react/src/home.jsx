@@ -57,7 +57,11 @@ export default function Home() {
         {taskArray.length === 0 ? (
           <p>nothig</p>
         ) : (
-          taskArray.map((item, index) => <li key={index}>{item.taskName}</li>)
+          <ul>
+            {taskArray.map((item, index) => (
+              <li key={index}>{item.taskName}</li>
+            ))}
+          </ul>
         )}
       </div>
 
@@ -81,6 +85,7 @@ const taskArray = [];
 //   // return (<ul>{addedTask}</ul>), console.log(taskArray);
 // }
 
+//create form for user input
 export function NewTask() {
   function addTask(e) {
     // Prevent the browser from reloading the page
@@ -90,10 +95,10 @@ export function NewTask() {
     const form = e.target;
     const formData = new FormData(form);
 
-    // Or you can work with it as a plain object:
+    // work with the data as a plain object:
     const formJson = Object.fromEntries(formData.entries());
 
-    // Create a task object to store the Taskdata. This object should be exported to another component
+    // Create a task object to store the Taskdata.
     const taskObject = {
       taskName: formJson.name,
       taskDetails: formJson.details,
