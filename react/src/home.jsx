@@ -55,7 +55,7 @@ export default function Home() {
         </div>*/}
 
         {taskArray.length === 0 ? (
-          <p>nothig</p>
+          <p>Add a New Task</p>
         ) : (
           <ul>
             {taskArray.map((item, index) => (
