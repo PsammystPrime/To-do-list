@@ -3,6 +3,7 @@ import profile from "/profile1.png";
 import { useState } from "react";
 
 export default function Home() {
+  // const newArr = ...taskArray
   // create tasks objects
   function Task(key, title, status) {
     (this.title = title), (this.status = status), (this.key = key);
@@ -11,10 +12,10 @@ export default function Home() {
   const task2 = new Task(1, "Finance Mobile App Design", "incomplete");
   const task3 = new Task(2, "To do list Analytics Integrations", "incomplete");
   // create array and store the tasks
-  const taskArray = [];
-  taskArray.push(task1, task2, task3);
+  const taskArray2 = [];
+  taskArray2.push(task1, task2, task3);
   //map the itemsArray into an another array and the tags each item will take
-  const listItems = taskArray.map((task) => (
+  const listItems = taskArray2.map((task) => (
     <li key={task.key}>
       <h3>{task.title}</h3>
       <span>Team Members</span>
@@ -52,7 +53,14 @@ export default function Home() {
           <h4>Ongoing Projects</h4>
           <button>See all</button>
         </div>*/}
+
+        {taskArray.length === 0 ? (
+          <p>nothig</p>
+        ) : (
+          taskArray.map((item, index) => <li key={index}>{item.taskName}</li>)
+        )}
       </div>
+
       <Link to="/new">
         <button onClick={NewTask}>New Task</button>
       </Link>
@@ -62,6 +70,16 @@ export default function Home() {
 
 //create an array to store the task objects
 const taskArray = [];
+
+// //displays the tasks added
+// function handleDisplayTask(taskArray) {
+//   console.log(taskArray);
+//   const addedTask = taskArray.map((item, index) => {
+//     <li key={index}>{item.taskname}</li>;
+//   });
+
+//   // return (<ul>{addedTask}</ul>), console.log(taskArray);
+// }
 
 export function NewTask() {
   function addTask(e) {
@@ -80,7 +98,6 @@ export function NewTask() {
       taskName: formJson.name,
       taskDetails: formJson.details,
     };
-    console.log(taskArray);
     console.log(taskObject);
 
     //push the task object to the task array for storage
