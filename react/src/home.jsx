@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import profile from "/profile1.png";
 import { useState } from "react";
 
-export default function Home() {
-  // const newArr = ...taskArray
+export default function Home({ taskArray, setTaskArray }) {
   // create tasks objects
   function Task(key, title, status) {
     (this.title = title), (this.status = status), (this.key = key);
@@ -22,6 +21,11 @@ export default function Home() {
       <p className="status">{task.status}</p>
     </li>
   ));
+
+  function DeleteTask(index) {
+    const removedTasks = taskArray.filter((element, i) => i !== index);
+    setTaskArray(removedTasks);
+  }
 
   // display the output
   return (
@@ -59,34 +63,24 @@ export default function Home() {
         ) : (
           <ul>
             {taskArray.map((item, index) => (
-              <li key={index}>{item.taskName}</li>
+              <li key={index}>
+                <h1>{item.taskName}</h1>
+                <button onClick={() => DeleteTask(index)}>delete</button>
+              </li>
             ))}
           </ul>
         )}
       </div>
 
       <Link to="/new">
-        <button onClick={NewTask}>New Task</button>
+        <button>New Task</button>
       </Link>
     </main>
   );
 }
 
-//create an array to store the task objects
-const taskArray = [];
-
-// //displays the tasks added
-// function handleDisplayTask(taskArray) {
-//   console.log(taskArray);
-//   const addedTask = taskArray.map((item, index) => {
-//     <li key={index}>{item.taskname}</li>;
-//   });
-
-//   // return (<ul>{addedTask}</ul>), console.log(taskArray);
-// }
-
 //create form for user input
-export function NewTask() {
+export function NewTask({ taskArray, setTaskArray }) {
   function addTask(e) {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -106,13 +100,12 @@ export function NewTask() {
     console.log(taskObject);
 
     //push the task object to the task array for storage
-    taskArray.push(taskObject);
-    console.log(taskArray);
+    setTaskArray([...taskArray, taskObject]);
   }
   //Gives a notification for a successfull task addition
-  const [confirm, setConfirmation] = useState("");
+  // const [confirm, setConfirmation] = useState("");
   function confirmTask() {
-    return setConfirmation("task added");
+    // return setConfirmation("task added");
   }
   return (
     <dialog>
@@ -131,7 +124,7 @@ export function NewTask() {
         <Link to="/homepage">
           <button type="reset">Cancel</button>
         </Link>
-        <span>{confirm}</span>
+        <span>{"confirm"}</span>
       </form>
     </dialog>
   );
