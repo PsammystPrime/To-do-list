@@ -7,8 +7,15 @@ export default function Home({ taskArray, setTaskArray }) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
   }
-  let completeTaskArray = [];
-
+  const [completeTaskArray, setCompleteTaskArray] = useState(["das"]);
+  function handleCheckbox(index) {
+    const newItem = taskArray[index].taskName;
+    setCompleteTaskArray([...completeTaskArray, newItem]);
+    console.log(newItem);
+    // console.log(index);
+    // console.log("completed");
+    DeleteTask(index);
+  }
   // display the output
   return (
     <main>
@@ -36,7 +43,11 @@ export default function Home({ taskArray, setTaskArray }) {
           {completeTaskArray == "" ? (
             <p style={{ color: "red", fontSize: "15px" }}>No completed tasks</p>
           ) : (
-            <p>filled</p>
+            <ul>
+              {completeTaskArray.map((comptask, index) => (
+                <p key={index}>{comptask}</p>
+              ))}
+            </ul>
           )}
         </div>
         {/* Started Tasks */}
@@ -75,6 +86,15 @@ export default function Home({ taskArray, setTaskArray }) {
             {taskArray.map((item, index) => (
               <li key={index}>
                 <h1>{item.taskName}</h1>
+                <p>
+                  completed{" "}
+                  <input
+                    type="checkbox"
+                    name="comp"
+                    id="comp"
+                    onClick={() => handleCheckbox(index)}
+                  />
+                </p>
                 <button onClick={() => DeleteTask(index)}>delete</button>
               </li>
             ))}
