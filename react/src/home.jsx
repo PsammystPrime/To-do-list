@@ -64,7 +64,7 @@ export default function Home({ taskArray, setTaskArray }) {
             <ul>
               {completeTaskArray.map((completedtask, index) => (
                 <li key={index}>
-                  <h1>{completedtask.taskName}</h1>
+                  <h1 style={{ color: "#ffffff" }}>{completedtask.taskName}</h1>
                   <p>{completedtask.taskDetails}</p>
                   <p>Due on</p>
                   <p>{`${completedtask.taskDate} at ${completedtask.taskTime}`}</p>
@@ -92,7 +92,7 @@ export default function Home({ taskArray, setTaskArray }) {
             <ul>
               {startedTaskArray.map((startedTask, index) => (
                 <li key={index}>
-                  <h1>{startedTask.taskName}</h1>
+                  <h1 style={{ color: "#ffffff" }}>{startedTask.taskName}</h1>
                   <p>{startedTask.taskDetails}</p>
                   <p>Due on</p>
                   <p>{`${startedTask.taskDate} at ${startedTask.taskTime}`}</p>
@@ -127,7 +127,7 @@ export default function Home({ taskArray, setTaskArray }) {
           <ul>
             {taskArray.map((item, index) => (
               <li key={index}>
-                <h1>{item.taskName}</h1>
+                <h2>{item.taskName}</h2>
                 <p>{item.taskDetails}</p>
                 <p>Due on</p>
                 <p>{`${item.taskDate} at ${item.taskTime}`}</p>
