@@ -3,29 +3,11 @@ import profile from "/profile1.png";
 import { useState } from "react";
 
 export default function Home({ taskArray, setTaskArray }) {
-  // create tasks objects
-  function Task(key, title, status) {
-    (this.title = title), (this.status = status), (this.key = key);
-  }
-  const task1 = new Task(0, "Real Estate Website Design", "complete");
-  const task2 = new Task(1, "Finance Mobile App Design", "incomplete");
-  const task3 = new Task(2, "To do list Analytics Integrations", "incomplete");
-  // create array and store the tasks
-  const taskArray2 = [];
-  taskArray2.push(task1, task2, task3);
-  //map the itemsArray into an another array and the tags each item will take
-  const listItems = taskArray2.map((task) => (
-    <li key={task.key}>
-      <h3>{task.title}</h3>
-      <span>Team Members</span>
-      <p className="status">{task.status}</p>
-    </li>
-  ));
-
   function DeleteTask(index) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
   }
+  let completeTaskArray = [];
 
   // display the output
   return (
@@ -46,17 +28,45 @@ export default function Home({ taskArray, setTaskArray }) {
         {/* Completed Tasks */}
         <div id="complete">
           <div className="complete">
-            <h4>Completed Tasks</h4>
+            <h3 style={{ color: "green", textDecoration: "underline" }}>
+              Completed Tasks
+            </h3>
             <button>See all</button>
           </div>
-          <ul>{listItems}</ul>
+          {completeTaskArray == "" ? (
+            <p style={{ color: "red", fontSize: "15px" }}>No completed tasks</p>
+          ) : (
+            <p>filled</p>
+          )}
         </div>
-
-        {/* Ongoing Tasks */}
-        {/* <div className="ongoing">
-          <h4>Ongoing Projects</h4>
-          <button>See all</button>
-        </div>*/}
+        {/* Started Tasks */}
+        <div id="start">
+          <div className="start">
+            <h3 style={{ color: "green", textDecoration: "underline" }}>
+              Started Tasks
+            </h3>
+            <button>See all</button>
+          </div>
+          {completeTaskArray == "" ? (
+            <p style={{ color: "red", fontSize: "15px" }}>No started tasks</p>
+          ) : (
+            <p>filled</p>
+          )}
+        </div>
+        {/* Pending Tasks */}
+        <div id="pending">
+          <div className="pending">
+            <h3 style={{ color: "green", textDecoration: "underline" }}>
+              Pending Tasks
+            </h3>
+            <button>See all</button>
+          </div>
+          {completeTaskArray == "" ? (
+            <p style={{ color: "red", fontSize: "15px" }}>No pending tasks</p>
+          ) : (
+            <p>filled</p>
+          )}
+        </div>
 
         {taskArray.length === 0 ? (
           <p>Add a New Task</p>
