@@ -27,25 +27,39 @@ export default function Home({ taskArray, setTaskArray }) {
       <div className="home-container">
         <div className="profile">
           <div className="greetings">
-            <span>Welcome Back</span>
-            <h2>Psammyst Prime</h2>
+            <span style={{ color: "#fed36a" }}>Welcome Back!</span>
+            <br />
+            <span style={{ color: "#ffffff", fontSize: "29px" }}>
+              Psammyst Prime
+            </span>
           </div>
           <img src={profile} alt="profile picture" className="profile-pic" />
         </div>
         {/* Search bar */}
         <div className="search">
-          <input type="search" name="" id="search" />
+          <input
+            type="search"
+            name=""
+            id="search"
+            style={{ minHeight: "42px", minWidth: "260px" }}
+          />
           <button>Search</button>
         </div>
         {/* Completed Tasks */}
         <div id="complete">
           <div className="complete">
-            <h3 style={{ color: "green", textDecoration: "underline" }}>
+            <h3
+              style={{
+                color: "rgb(31, 216, 31)",
+                fontSize: "35px",
+                textDecoration: "underline",
+              }}
+            >
               Completed Tasks
             </h3>
           </div>
           {completeTaskArray == "" ? (
-            <p style={{ color: "red", fontSize: "15px" }}>No completed tasks</p>
+            <p style={{ color: "red", fontSize: "25px" }}>No completed tasks</p>
           ) : (
             <ul>
               {completeTaskArray.map((completedtask, index) => (
@@ -62,12 +76,18 @@ export default function Home({ taskArray, setTaskArray }) {
         {/* Started Tasks */}
         <div id="start">
           <div className="start">
-            <h3 style={{ color: "green", textDecoration: "underline" }}>
+            <h3
+              style={{
+                color: "rgb(240, 137, 19)",
+                fontSize: "35px",
+                textDecoration: "underline",
+              }}
+            >
               Started Tasks
             </h3>
           </div>
           {completeTaskArray == "" ? (
-            <p style={{ color: "red", fontSize: "15px" }}>No started tasks</p>
+            <p style={{ color: "red", fontSize: "25px" }}>No started tasks</p>
           ) : (
             <ul>
               {startedTaskArray.map((startedTask, index) => (
@@ -84,12 +104,18 @@ export default function Home({ taskArray, setTaskArray }) {
         {/* Pending Tasks */}
         <div id="pending">
           <div className="pending">
-            <h3 style={{ color: "green", textDecoration: "underline" }}>
+            <h3
+              style={{
+                color: "#ffffff",
+                fontSize: "35px",
+                textDecoration: "underline",
+              }}
+            >
               Pending Tasks
             </h3>
           </div>
           {taskArray == "" ? (
-            <p style={{ color: "red", fontSize: "15px" }}>No pending tasks</p>
+            <p style={{ color: "red", fontSize: "25px" }}>No pending tasks</p>
           ) : (
             <p>The tasks below require your attention</p>
           )}

@@ -9,6 +9,7 @@ main {
   flex-direction: column;
   background-color: #212832;
   padding: 5px 9px 15px 9px;
+  min-width: 350px;
 }
 .logo {
   width: 50px;
@@ -125,4 +126,14 @@ dialog {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+/*                                                 homepage */
+.profile,
+.search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.profile-pic {
+  height: 70px;
 }
