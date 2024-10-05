@@ -84,10 +84,10 @@ export default function Home({ taskArray, setTaskArray }) {
               Pending Tasks
             </h3>
           </div>
-          {completeTaskArray == "" ? (
+          {taskArray == "" ? (
             <p style={{ color: "red", fontSize: "15px" }}>No pending tasks</p>
           ) : (
-            <p>filled</p>
+            <p>The tasks below require your attention</p>
           )}
         </div>
 
