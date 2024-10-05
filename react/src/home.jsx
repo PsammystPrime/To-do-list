@@ -74,8 +74,8 @@ export default function Home({ taskArray, setTaskArray }) {
           )}
         </div>
         {/* Started Tasks */}
-        <div id="start">
-          <div className="start">
+        <div id="started">
+          <div className="started">
             <h3
               style={{
                 color: "rgb(240, 137, 19)",
@@ -151,7 +151,9 @@ export default function Home({ taskArray, setTaskArray }) {
                     />
                   </p>
                 </div>
-                <button onClick={() => DeleteTask(index)}>delete</button>
+                <button className="delete" onClick={() => DeleteTask(index)}>
+                  delete
+                </button>
               </li>
             ))}
           </ul>
