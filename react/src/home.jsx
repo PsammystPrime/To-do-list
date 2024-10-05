@@ -131,24 +131,26 @@ export default function Home({ taskArray, setTaskArray }) {
                 <p>{item.taskDetails}</p>
                 <p>Due on</p>
                 <p>{`${item.taskDate} at ${item.taskTime}`}</p>
-                <p style={{ color: "green" }}>
-                  completed?{" "}
-                  <input
-                    type="checkbox"
-                    name="comp"
-                    id="comp"
-                    onClick={() => handleCompleteCheckbox(index)}
-                  />
-                </p>
-                <p style={{ color: "greenYellow" }}>
-                  pending?{" "}
-                  <input
-                    type="checkbox"
-                    name="pend"
-                    id="pend"
-                    onClick={() => handleStartedCheckbox(index)}
-                  />
-                </p>
+                <div className="checkboxSelection">
+                  <p style={{ color: "rgb(83, 236, 91)" }}>
+                    Completed?{" "}
+                    <input
+                      type="checkbox"
+                      name="comp"
+                      id="comp"
+                      onClick={() => handleCompleteCheckbox(index)}
+                    />
+                  </p>
+                  <p style={{ color: "greenYellow" }}>
+                    Pending?{" "}
+                    <input
+                      type="checkbox"
+                      name="pend"
+                      id="pend"
+                      onClick={() => handleStartedCheckbox(index)}
+                    />
+                  </p>
+                </div>
                 <button onClick={() => DeleteTask(index)}>delete</button>
               </li>
             ))}
