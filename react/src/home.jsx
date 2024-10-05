@@ -132,7 +132,7 @@ export default function Home({ taskArray, setTaskArray }) {
                 <p>Due on</p>
                 <p>{`${item.taskDate} at ${item.taskTime}`}</p>
                 <div className="checkboxSelection">
-                  <p style={{ color: "rgb(83, 236, 91)" }}>
+                  <p style={{ color: "#71e43c" }}>
                     Completed?{" "}
                     <input
                       type="checkbox"
@@ -141,7 +141,7 @@ export default function Home({ taskArray, setTaskArray }) {
                       onClick={() => handleCompleteCheckbox(index)}
                     />
                   </p>
-                  <p style={{ color: "greenYellow" }}>
+                  <p style={{ color: "#fed36a" }}>
                     Pending?{" "}
                     <input
                       type="checkbox"
