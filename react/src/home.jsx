@@ -35,7 +35,7 @@ export default function Home({ taskArray, setTaskArray }) {
         {/* Search bar */}
         <div className="search">
           <input type="search" name="" id="search" />
-          <button>S</button>
+          <button>Search</button>
         </div>
         {/* Completed Tasks */}
         <div id="complete">
@@ -43,7 +43,6 @@ export default function Home({ taskArray, setTaskArray }) {
             <h3 style={{ color: "green", textDecoration: "underline" }}>
               Completed Tasks
             </h3>
-            <button>See all</button>
           </div>
           {completeTaskArray == "" ? (
             <p style={{ color: "red", fontSize: "15px" }}>No completed tasks</p>
@@ -66,7 +65,6 @@ export default function Home({ taskArray, setTaskArray }) {
             <h3 style={{ color: "green", textDecoration: "underline" }}>
               Started Tasks
             </h3>
-            <button>See all</button>
           </div>
           {completeTaskArray == "" ? (
             <p style={{ color: "red", fontSize: "15px" }}>No started tasks</p>
