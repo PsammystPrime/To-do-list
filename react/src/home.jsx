@@ -12,12 +12,12 @@ export default function Home({ taskArray, setTaskArray }) {
   }
 
   function handleCompleteCheckbox(index) {
-    const addCompleteTask = taskArray[index].taskName;
+    const addCompleteTask = taskArray[index];
     setCompleteTaskArray([...completeTaskArray, addCompleteTask]);
     DeleteTask(index);
   }
   function handleStartedCheckbox(index) {
-    const addStartedTask = taskArray[index].taskName;
+    const addStartedTask = taskArray[index];
     setStartedTaskArray([...startedTaskArray, addStartedTask]);
     DeleteTask(index);
   }
@@ -50,7 +50,12 @@ export default function Home({ taskArray, setTaskArray }) {
           ) : (
             <ul>
               {completeTaskArray.map((completedtask, index) => (
-                <p key={index}>{completedtask}</p>
+                <li key={index}>
+                  <h1>{completedtask.taskName}</h1>
+                  <p>{completedtask.taskDetails}</p>
+                  <p>Due on</p>
+                  <p>{`${completedtask.taskDate} at ${completedtask.taskTime}`}</p>
+                </li>
               ))}
             </ul>
           )}
@@ -68,7 +73,12 @@ export default function Home({ taskArray, setTaskArray }) {
           ) : (
             <ul>
               {startedTaskArray.map((startedTask, index) => (
-                <p key={index}>{startedTask}</p>
+                <li key={index}>
+                  <h1>{startedTask.taskName}</h1>
+                  <p>{startedTask.taskDetails}</p>
+                  <p>Due on</p>
+                  <p>{`${startedTask.taskDate} at ${startedTask.taskTime}`}</p>
+                </li>
               ))}
             </ul>
           )}
@@ -94,7 +104,10 @@ export default function Home({ taskArray, setTaskArray }) {
             {taskArray.map((item, index) => (
               <li key={index}>
                 <h1>{item.taskName}</h1>
-                <p>
+                <p>{item.taskDetails}</p>
+                <p>Due on</p>
+                <p>{`${item.taskDate} at ${item.taskTime}`}</p>
+                <p style={{ color: "green" }}>
                   completed?{" "}
                   <input
                     type="checkbox"
@@ -103,7 +116,7 @@ export default function Home({ taskArray, setTaskArray }) {
                     onClick={() => handleCompleteCheckbox(index)}
                   />
                 </p>
-                <p>
+                <p style={{ color: "greenYellow" }}>
                   pending?{" "}
                   <input
                     type="checkbox"

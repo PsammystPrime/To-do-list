@@ -18,8 +18,10 @@ export default function NewTask({ taskArray, setTaskArray }) {
     const taskObject = {
       taskName: formJson.name,
       taskDetails: formJson.details,
+      taskTime: formJson.time,
+      taskDate: formJson.date,
     };
-    console.log(taskObject);
+    // console.log(taskObject);
 
     //push the task object to the task array for storage
     setTaskArray([...taskArray, taskObject]);
