@@ -48,7 +48,9 @@ export default function NewTask({ taskArray, setTaskArray }) {
             Add Task
           </button>
           <Link to="/homepage">
-            <button type="reset">Cancel</button>
+            <button className="reset" type="reset">
+              Cancel
+            </button>
           </Link>
         </div>
         <span>{confirm}</span>
