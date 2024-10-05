@@ -29,12 +29,12 @@ export default function NewTask({ taskArray, setTaskArray }) {
   //Gives a notification for a successfull task addition
   const [confirm, setConfirmation] = useState("");
   function confirmTask() {
-    return setConfirmation("task added");
+    return setConfirmation("task added successfully");
   }
   return (
     <dialog>
       <h2>Create a New Task</h2>
-      <form action="post" onSubmit={addTask}>
+      <form className="taskForm" action="post" onSubmit={addTask}>
         <label htmlFor="title">Title </label>
         <input type="text" name="name" defaultValue={"Task Name"} />
         <label htmlFor="details">Details</label>
@@ -42,13 +42,15 @@ export default function NewTask({ taskArray, setTaskArray }) {
         <label htmlFor="date">Date & Time</label>
         <input type="time" name="time" id="" defaultValue={"12:00:00"} />
         <input type="date" name="date" id="" defaultValue={"2024-03-01"} />
-        <button type="submit" onClick={confirmTask}>
-          Add
-        </button>
-
-        <Link to="/homepage">
-          <button type="reset">Cancel</button>
-        </Link>
+        <div className="dialogbtns">
+          {" "}
+          <button type="submit" onClick={confirmTask}>
+            Add Task
+          </button>
+          <Link to="/homepage">
+            <button type="reset">Cancel</button>
+          </Link>
+        </div>
         <span>{confirm}</span>
       </form>
     </dialog>

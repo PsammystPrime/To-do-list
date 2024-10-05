@@ -122,12 +122,6 @@ a {
 
 /*                                              Signup Page */
 
-/* Dialog Modal */
-dialog {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
 /*                                                 homepage */
 .profile,
 .search {
@@ -156,4 +150,19 @@ li {
   display: flex;
   gap: 5px;
   margin-top: -25px;
+}
+
+/*                                                 TasksForm */
+dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+dialog > h2 {
+  color: #0a4664;
+}
+.dialogbtns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
