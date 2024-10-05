@@ -14,17 +14,11 @@ export default function Home({ taskArray, setTaskArray }) {
   function handleCompleteCheckbox(index) {
     const addCompleteTask = taskArray[index].taskName;
     setCompleteTaskArray([...completeTaskArray, addCompleteTask]);
-    console.log(addCompleteTask);
-    // console.log(index);
-    // console.log("completed");
     DeleteTask(index);
   }
   function handleStartedCheckbox(index) {
     const addStartedTask = taskArray[index].taskName;
     setStartedTaskArray([...startedTaskArray, addStartedTask]);
-    console.log(addStartedTask);
-    // console.log(index);
-    // console.log("completed");
     DeleteTask(index);
   }
   // display the output
@@ -55,8 +49,8 @@ export default function Home({ taskArray, setTaskArray }) {
             <p style={{ color: "red", fontSize: "15px" }}>No completed tasks</p>
           ) : (
             <ul>
-              {completeTaskArray.map((comptask, index) => (
-                <p key={index}>{comptask}</p>
+              {completeTaskArray.map((completedtask, index) => (
+                <p key={index}>{completedtask}</p>
               ))}
             </ul>
           )}
