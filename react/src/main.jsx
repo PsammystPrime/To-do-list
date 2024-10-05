@@ -4,10 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 import Login, { Signup } from "./login.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home, { NewTask } from "./home.jsx";
+import Home from "./home.jsx";
+import NewTask from "./NewTask.jsx";
 
 function AppRouter() {
-  const [taskArray, setTaskArray] = useState(["sam"]);
+  const [taskArray, setTaskArray] = useState([]);
 
   const route = createBrowserRouter([
     { path: "/", element: <App /> },

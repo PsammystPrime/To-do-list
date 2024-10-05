@@ -3,12 +3,14 @@ import profile from "/profile1.png";
 import { useState } from "react";
 
 export default function Home({ taskArray, setTaskArray }) {
+  const [completeTaskArray, setCompleteTaskArray] = useState([]);
+  const [startedTaskArray, setStartedTaskArray] = useState([]);
+
   function DeleteTask(index) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
   }
-  const [completeTaskArray, setCompleteTaskArray] = useState([]);
-  const [startedTaskArray, setStartedTaskArray] = useState([]);
+
   function handleCompleteCheckbox(index) {
     const addCompleteTask = taskArray[index].taskName;
     setCompleteTaskArray([...completeTaskArray, addCompleteTask]);
@@ -91,7 +93,7 @@ export default function Home({ taskArray, setTaskArray }) {
           )}
         </div>
 
-        {taskArray.length === 0 ? (
+        {taskArray.length == 0 ? (
           <p>Add a New Task</p>
         ) : (
           <ul>
@@ -127,56 +129,5 @@ export default function Home({ taskArray, setTaskArray }) {
         <button>New Task</button>
       </Link>
     </main>
-  );
-}
-
-//create form for user input
-export function NewTask({ taskArray, setTaskArray }) {
-  function addTask(e) {
-    // Prevent the browser from reloading the page
-    e.preventDefault();
-
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
-
-    // work with the data as a plain object:
-    const formJson = Object.fromEntries(formData.entries());
-
-    // Create a task object to store the Taskdata.
-    const taskObject = {
-      taskName: formJson.name,
-      taskDetails: formJson.details,
-    };
-    console.log(taskObject);
-
-    //push the task object to the task array for storage
-    setTaskArray([...taskArray, taskObject]);
-  }
-  //Gives a notification for a successfull task addition
-  // const [confirm, setConfirmation] = useState("");
-  function confirmTask() {
-    // return setConfirmation("task added");
-  }
-  return (
-    <dialog>
-      <h2>Create a New Task</h2>
-      <form action="post" onSubmit={addTask}>
-        <label htmlFor="title">Title </label>
-        <input type="text" name="name" defaultValue={"sam"} />
-        <label htmlFor="details">Details</label>
-        <input type="text" name="details" defaultValue={"info"} />
-        <label htmlFor="date">Date & Time</label>
-        <input type="time" name="time" id="" defaultValue={"12:00:00"} />
-        <input type="date" name="date" id="" defaultValue={"2024-03-01"} />
-        <button type="submit" onClick={confirmTask}>
-          Add
-        </button>{" "}
-        <Link to="/homepage">
-          <button type="reset">Cancel</button>
-        </Link>
-        <span>{"confirm"}</span>
-      </form>
-    </dialog>
   );
 }
