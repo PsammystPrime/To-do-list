@@ -7,11 +7,20 @@ export default function Home({ taskArray, setTaskArray }) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
   }
-  const [completeTaskArray, setCompleteTaskArray] = useState(["das"]);
-  function handleCheckbox(index) {
-    const newItem = taskArray[index].taskName;
-    setCompleteTaskArray([...completeTaskArray, newItem]);
-    console.log(newItem);
+  const [completeTaskArray, setCompleteTaskArray] = useState([]);
+  const [startedTaskArray, setStartedTaskArray] = useState([]);
+  function handleCompleteCheckbox(index) {
+    const addCompleteTask = taskArray[index].taskName;
+    setCompleteTaskArray([...completeTaskArray, addCompleteTask]);
+    console.log(addCompleteTask);
+    // console.log(index);
+    // console.log("completed");
+    DeleteTask(index);
+  }
+  function handleStartedCheckbox(index) {
+    const addStartedTask = taskArray[index].taskName;
+    setStartedTaskArray([...startedTaskArray, addStartedTask]);
+    console.log(addStartedTask);
     // console.log(index);
     // console.log("completed");
     DeleteTask(index);
@@ -61,7 +70,11 @@ export default function Home({ taskArray, setTaskArray }) {
           {completeTaskArray == "" ? (
             <p style={{ color: "red", fontSize: "15px" }}>No started tasks</p>
           ) : (
-            <p>filled</p>
+            <ul>
+              {startedTaskArray.map((startedTask, index) => (
+                <p key={index}>{startedTask}</p>
+              ))}
+            </ul>
           )}
         </div>
         {/* Pending Tasks */}
@@ -70,7 +83,6 @@ export default function Home({ taskArray, setTaskArray }) {
             <h3 style={{ color: "green", textDecoration: "underline" }}>
               Pending Tasks
             </h3>
-            <button>See all</button>
           </div>
           {completeTaskArray == "" ? (
             <p style={{ color: "red", fontSize: "15px" }}>No pending tasks</p>
@@ -87,12 +99,21 @@ export default function Home({ taskArray, setTaskArray }) {
               <li key={index}>
                 <h1>{item.taskName}</h1>
                 <p>
-                  completed{" "}
+                  completed?{" "}
                   <input
                     type="checkbox"
                     name="comp"
                     id="comp"
-                    onClick={() => handleCheckbox(index)}
+                    onClick={() => handleCompleteCheckbox(index)}
+                  />
+                </p>
+                <p>
+                  pending?{" "}
+                  <input
+                    type="checkbox"
+                    name="pend"
+                    id="pend"
+                    onClick={() => handleStartedCheckbox(index)}
                   />
                 </p>
                 <button onClick={() => DeleteTask(index)}>delete</button>
