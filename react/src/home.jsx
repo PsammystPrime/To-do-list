@@ -19,7 +19,8 @@ export default function Home({
   pendingTaskArray,
   setPendingTaskArray,
 }) {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked] = useState(false);
+
   function DeleteTask(index) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
