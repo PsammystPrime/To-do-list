@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 //create form for user input
-export default function NewTask({ taskArray, setTaskArray }) {
+export default function NewTask({
+  taskArray,
+  setTaskArray,
+  completeTaskArray,
+  setCompleteTaskArray,
+}) {
   const [Cancel, setCancel] = useState("Cancel");
   const [buttonColor, setButtonColor] = useState("#1a1a1a");
   function addTask(e) {
@@ -24,7 +29,7 @@ export default function NewTask({ taskArray, setTaskArray }) {
       taskDate: formJson.date,
     };
     // console.log(taskObject);
-
+    setCompleteTaskArray(completeTaskArray);
     //push the task object to the task array for storage
     setTaskArray([...taskArray, taskObject]);
   }

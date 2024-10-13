@@ -9,6 +9,7 @@ import NewTask from "./NewTask.jsx";
 
 function AppRouter() {
   const [taskArray, setTaskArray] = useState([]);
+  const [completeTaskArray, setCompleteTaskArray] = useState([]);
 
   const route = createBrowserRouter([
     { path: "/", element: <App /> },
@@ -16,11 +17,25 @@ function AppRouter() {
     { path: "signup", element: <Signup /> },
     {
       path: "homepage",
-      element: <Home taskArray={taskArray} setTaskArray={setTaskArray} />,
+      element: (
+        <Home
+          taskArray={taskArray}
+          setTaskArray={setTaskArray}
+          completeTaskArray={completeTaskArray}
+          setCompleteTaskArray={setCompleteTaskArray}
+        />
+      ),
     }, // Pass taskArray and setTaskArray to Home
     {
       path: "new",
-      element: <NewTask taskArray={taskArray} setTaskArray={setTaskArray} />,
+      element: (
+        <NewTask
+          taskArray={taskArray}
+          setTaskArray={setTaskArray}
+          completeTaskArray={completeTaskArray}
+          setCompleteTaskArray={setCompleteTaskArray}
+        />
+      ),
     },
   ]);
 

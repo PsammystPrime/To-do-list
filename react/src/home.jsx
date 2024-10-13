@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import profile from "/profile1.png";
 import { useState } from "react";
 
-export default function Home({ taskArray, setTaskArray }) {
-  const [completeTaskArray, setCompleteTaskArray] = useState([]);
+export default function Home({
+  taskArray,
+  setTaskArray,
+  completeTaskArray,
+  setCompleteTaskArray,
+}) {
   const [pendingTaskArray, setPendingTaskArray] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
 
