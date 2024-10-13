@@ -1,3 +1,5 @@
+<img src="./design/Thumbnail.png">
+
 # To do list
 
 A frontend Project Created with React, but initially used Vanilla JavaScript + Webpack.
