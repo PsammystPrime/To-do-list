@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Home({ taskArray, setTaskArray }) {
   const [completeTaskArray, setCompleteTaskArray] = useState([]);
-  const [startedTaskArray, setStartedTaskArray] = useState([]);
+  const [pendingTaskArray, setPendingTaskArray] = useState([]);
 
   function DeleteTask(index) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
@@ -16,9 +16,12 @@ export default function Home({ taskArray, setTaskArray }) {
     setCompleteTaskArray([...completeTaskArray, addCompleteTask]);
     DeleteTask(index);
   }
-  function handleStartedCheckbox(index) {
-    const addStartedTask = taskArray[index];
-    setStartedTaskArray([...startedTaskArray, addStartedTask]);
+  function handlePendingCheckbox(index) {
+    const addPendingTask = taskArray[index];
+    // console.log("asss");
+    console.log(addPendingTask);
+    console.log(pendingTaskArray);
+    setPendingTaskArray([...pendingTaskArray, addPendingTask]);
     DeleteTask(index);
   }
   // display the output
@@ -83,19 +86,19 @@ export default function Home({ taskArray, setTaskArray }) {
                 textDecoration: "underline",
               }}
             >
-              Started Tasks
+              Pending Tasks
             </h3>
           </div>
-          {completeTaskArray == "" ? (
-            <p style={{ color: "red", fontSize: "25px" }}>No started tasks</p>
+          {pendingTaskArray == "" ? (
+            <p style={{ color: "red", fontSize: "25px" }}>No pending tasks</p>
           ) : (
             <ul>
-              {startedTaskArray.map((startedTask, index) => (
+              {pendingTaskArray.map((pendingtask, index) => (
                 <li key={index}>
-                  <h1 style={{ color: "#ffffff" }}>{startedTask.taskName}</h1>
-                  <p>{startedTask.taskDetails}</p>
+                  <h1 style={{ color: "#ffffff" }}>{pendingtask.taskName}</h1>
+                  <p>{pendingtask.taskDetails}</p>
                   <p>Due on</p>
-                  <p>{`${startedTask.taskDate} at ${startedTask.taskTime}`}</p>
+                  <p>{`${pendingtask.taskDate} at ${pendingtask.taskTime}`}</p>
                 </li>
               ))}
             </ul>
@@ -111,11 +114,11 @@ export default function Home({ taskArray, setTaskArray }) {
                 textDecoration: "underline",
               }}
             >
-              Pending Tasks
+              Created Tasks
             </h3>
           </div>
           {taskArray == "" ? (
-            <p style={{ color: "red", fontSize: "25px" }}>No pending tasks</p>
+            <p style={{ color: "red", fontSize: "25px" }}>No Created tasks</p>
           ) : (
             <p>The tasks below require your attention</p>
           )}
@@ -159,7 +162,7 @@ export default function Home({ taskArray, setTaskArray }) {
                       type="checkbox"
                       name="pend"
                       id="pend"
-                      onClick={() => handleStartedCheckbox(index)}
+                      onClick={() => handlePendingCheckbox(index)}
                     />
                   </p>
                 </div>
