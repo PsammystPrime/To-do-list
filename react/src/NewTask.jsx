@@ -7,6 +7,8 @@ export default function NewTask({
   setTaskArray,
   completeTaskArray,
   setCompleteTaskArray,
+  pendingTaskArray,
+  setPendingTaskArray,
 }) {
   const [Cancel, setCancel] = useState("Cancel");
   const [buttonColor, setButtonColor] = useState("#1a1a1a");
@@ -28,9 +30,9 @@ export default function NewTask({
       taskTime: formJson.time,
       taskDate: formJson.date,
     };
-    // console.log(taskObject);
+    //retain items in the two arrays
     setCompleteTaskArray(completeTaskArray);
-    //push the task object to the task array for storage
+    setPendingTaskArray(pendingTaskArray);
     setTaskArray([...taskArray, taskObject]);
   }
   //Gives a notification for a successfull task addition

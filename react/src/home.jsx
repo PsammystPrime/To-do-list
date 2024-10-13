@@ -7,8 +7,9 @@ export default function Home({
   setTaskArray,
   completeTaskArray,
   setCompleteTaskArray,
+  pendingTaskArray,
+  setPendingTaskArray,
 }) {
-  const [pendingTaskArray, setPendingTaskArray] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
 
   function DeleteTask(index) {

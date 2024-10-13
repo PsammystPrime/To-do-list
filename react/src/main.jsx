@@ -10,6 +10,7 @@ import NewTask from "./NewTask.jsx";
 function AppRouter() {
   const [taskArray, setTaskArray] = useState([]);
   const [completeTaskArray, setCompleteTaskArray] = useState([]);
+  const [pendingTaskArray, setPendingTaskArray] = useState([]);
 
   const route = createBrowserRouter([
     { path: "/", element: <App /> },
@@ -23,6 +24,8 @@ function AppRouter() {
           setTaskArray={setTaskArray}
           completeTaskArray={completeTaskArray}
           setCompleteTaskArray={setCompleteTaskArray}
+          pendingTaskArray={pendingTaskArray}
+          setPendingTaskArray={setPendingTaskArray}
         />
       ),
     }, // Pass taskArray and setTaskArray to Home
@@ -34,6 +37,8 @@ function AppRouter() {
           setTaskArray={setTaskArray}
           completeTaskArray={completeTaskArray}
           setCompleteTaskArray={setCompleteTaskArray}
+          pendingTaskArray={pendingTaskArray}
+          setPendingTaskArray={setPendingTaskArray}
         />
       ),
     },
