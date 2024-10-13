@@ -13,11 +13,11 @@ function AppRouter() {
 
   const route = createBrowserRouter([
     { path: "/", element: <App /> },
-    { path: "login", element: <Login /> },
-    { path: "signup", element: <Signup /> },
+    { path: "/login", element: <Login /> },
+    { path: "/signup", element: <Signup /> },
     // Pass taskArray and setTaskArray to Home and NewTask
     {
-      path: "homepage",
+      path: "/homepage",
       element: (
         <Home
           taskArray={taskArray}
@@ -30,7 +30,7 @@ function AppRouter() {
       ),
     },
     {
-      path: "new",
+      path: "/new",
       element: (
         <NewTask
           taskArray={taskArray}
