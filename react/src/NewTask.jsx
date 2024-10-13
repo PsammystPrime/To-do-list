@@ -3,6 +3,8 @@ import { useState } from "react";
 
 //create form for user input
 export default function NewTask({ taskArray, setTaskArray }) {
+  const [Cancel, setCancel] = useState("Cancel");
+  const [buttonColor, setButtonColor] = useState("#1a1a1a");
   function addTask(e) {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -29,7 +31,11 @@ export default function NewTask({ taskArray, setTaskArray }) {
   //Gives a notification for a successfull task addition
   const [confirm, setConfirmation] = useState("");
   function confirmTask() {
-    return setConfirmation("task added successfully");
+    setCancel("Finish");
+    setButtonColor("green");
+    return setConfirmation(
+      "Task added successfully. Add another Task or Finish to complete."
+    );
   }
   return (
     <dialog>
@@ -48,12 +54,16 @@ export default function NewTask({ taskArray, setTaskArray }) {
             Add Task
           </button>
           <Link to="/homepage">
-            <button className="reset" type="reset">
-              Cancel
+            <button
+              className="reset"
+              type="reset"
+              style={{ backgroundColor: buttonColor }}
+            >
+              {Cancel}
             </button>
           </Link>
         </div>
-        <span>{confirm}</span>
+        <span style={{ color: "#1a1a1a" }}>{confirm}</span>
       </form>
     </dialog>
   );

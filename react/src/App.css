@@ -196,7 +196,7 @@ dialog > h2 {
 }
 .push:hover,
 .reset:hover {
-  background-color: #f9f9f9;
-  border-color: #0bca0b;
-  color: #dd0c0c;
+  background-color: green;
+  border-color: gray;
+  color: #ffffff;
 }
