@@ -10,6 +10,18 @@ export default function Home({ taskArray, setTaskArray }) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
   }
+  function DeleteCompletedTask(index) {
+    const removedCompletedTasks = completeTaskArray.filter(
+      (element, i) => i !== index
+    );
+    setCompleteTaskArray(removedCompletedTasks);
+  }
+  function DeletePendingTask(index) {
+    const removedPendingTasks = pendingTaskArray.filter(
+      (element, i) => i !== index
+    );
+    setPendingTaskArray(removedPendingTasks);
+  }
 
   function handleCompleteCheckbox(index) {
     const addCompleteTask = taskArray[index];
@@ -71,6 +83,12 @@ export default function Home({ taskArray, setTaskArray }) {
                   <p>{completedtask.taskDetails}</p>
                   <p>Due on</p>
                   <p>{`${completedtask.taskDate} at ${completedtask.taskTime}`}</p>
+                  <button
+                    className="delete"
+                    onClick={() => DeleteCompletedTask(index)}
+                  >
+                    delete
+                  </button>
                 </li>
               ))}
             </ul>
@@ -99,6 +117,12 @@ export default function Home({ taskArray, setTaskArray }) {
                   <p>{pendingtask.taskDetails}</p>
                   <p>Due on</p>
                   <p>{`${pendingtask.taskDate} at ${pendingtask.taskTime}`}</p>
+                  <button
+                    className="delete"
+                    onClick={() => DeletePendingTask(index)}
+                  >
+                    delete
+                  </button>
                 </li>
               ))}
             </ul>
