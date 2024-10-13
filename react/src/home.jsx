@@ -36,6 +36,12 @@ export default function Home({ taskArray, setTaskArray }) {
     setPendingTaskArray([...pendingTaskArray, addPendingTask]);
     DeleteTask(index);
   }
+  function handleAddedCompleteTask(index) {
+    const pushedTask = pendingTaskArray[index];
+    setCompleteTaskArray([...completeTaskArray, pushedTask]);
+    DeletePendingTask(index);
+  }
+
   // display the output
   return (
     <main>
@@ -122,6 +128,12 @@ export default function Home({ taskArray, setTaskArray }) {
                     onClick={() => DeletePendingTask(index)}
                   >
                     delete
+                  </button>{" "}
+                  <button
+                    className="delete"
+                    onClick={() => handleAddedCompleteTask(index)}
+                  >
+                    Mark Complete
                   </button>
                 </li>
               ))}
