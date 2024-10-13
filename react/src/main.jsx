@@ -15,6 +15,7 @@ function AppRouter() {
     { path: "/", element: <App /> },
     { path: "login", element: <Login /> },
     { path: "signup", element: <Signup /> },
+    // Pass taskArray and setTaskArray to Home and NewTask
     {
       path: "homepage",
       element: (
@@ -27,7 +28,7 @@ function AppRouter() {
           setPendingTaskArray={setPendingTaskArray}
         />
       ),
-    }, // Pass taskArray and setTaskArray to Home
+    },
     {
       path: "new",
       element: (
