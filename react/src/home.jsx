@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Home({ taskArray, setTaskArray }) {
   const [completeTaskArray, setCompleteTaskArray] = useState([]);
   const [pendingTaskArray, setPendingTaskArray] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   function DeleteTask(index) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
@@ -61,6 +62,7 @@ export default function Home({ taskArray, setTaskArray }) {
           </div>
           <img src={profile} alt="profile picture" className="profile-pic" />
         </div>
+
         {/* Search bar */}
         <div className="search">
           <input
@@ -71,6 +73,7 @@ export default function Home({ taskArray, setTaskArray }) {
           />
           <button>Search</button>
         </div>
+
         {/* Completed Tasks */}
         <div id="complete">
           <div className="complete">
@@ -98,10 +101,10 @@ export default function Home({ taskArray, setTaskArray }) {
                     className="delete"
                     onClick={() => DeleteCompletedTask(index)}
                   >
-                    delete
+                    Delete
                   </button>{" "}
                   <button
-                    className="delete"
+                    className="push"
                     onClick={() => handlePushToPending(index)}
                   >
                     Mark Pending
@@ -111,7 +114,8 @@ export default function Home({ taskArray, setTaskArray }) {
             </ul>
           )}
         </div>
-        {/* Started Tasks */}
+
+        {/* Pending Tasks */}
         <div id="started">
           <div className="started">
             <h3
@@ -138,10 +142,10 @@ export default function Home({ taskArray, setTaskArray }) {
                     className="delete"
                     onClick={() => DeletePendingTask(index)}
                   >
-                    delete
+                    Delete
                   </button>{" "}
                   <button
-                    className="delete"
+                    className="push"
                     onClick={() => handleAddedCompleteTask(index)}
                   >
                     Mark Complete
@@ -151,9 +155,10 @@ export default function Home({ taskArray, setTaskArray }) {
             </ul>
           )}
         </div>
-        {/* Pending Tasks */}
-        <div id="pending">
-          <div className="pending">
+
+        {/* Created Tasks */}
+        <div id="created">
+          <div className="created">
             <h3
               style={{
                 color: "#ffffff",
@@ -194,6 +199,7 @@ export default function Home({ taskArray, setTaskArray }) {
                       type="checkbox"
                       name="comp"
                       id="comp"
+                      checked={isChecked}
                       onClick={() => handleCompleteCheckbox(index)}
                     />
                   </p>
@@ -209,12 +215,13 @@ export default function Home({ taskArray, setTaskArray }) {
                       type="checkbox"
                       name="pend"
                       id="pend"
+                      checked={isChecked}
                       onClick={() => handlePendingCheckbox(index)}
                     />
                   </p>
                 </div>
                 <button className="delete" onClick={() => DeleteTask(index)}>
-                  delete
+                  Delete
                 </button>
               </li>
             ))}

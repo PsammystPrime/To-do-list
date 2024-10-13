@@ -175,7 +175,8 @@ dialog > h2 {
   margin-bottom: 12px;
 }
 .dialogbtns > button,
-.reset {
+.reset,
+.push {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -193,6 +194,7 @@ dialog > h2 {
   border-color: #646cff;
   color: #535bf2;
 }
+.push:hover,
 .reset:hover {
   background-color: #f9f9f9;
   border-color: #0bca0b;
