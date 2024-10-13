@@ -35,7 +35,7 @@ export default function NewTask({
     setPendingTaskArray(pendingTaskArray);
     setTaskArray([...taskArray, taskObject]);
   }
-  //Gives a notification for a successfull task addition
+  //Give a notification for a successfull task addition
   const [confirm, setConfirmation] = useState("");
   function confirmTask() {
     setCancel("Finish");
