@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
+NewTask.propTypes = {
+  taskArray: PropTypes.string.isRequired,
+  setTaskArray: PropTypes.string.isRequired,
+  completeTaskArray: PropTypes.string.isRequired,
+  setCompleteTaskArray: PropTypes.string.isRequired,
+  pendingTaskArray: PropTypes.string.isRequired,
+  setPendingTaskArray: PropTypes.string.isRequired,
+};
 //create form for user input
 export default function NewTask({
   taskArray,

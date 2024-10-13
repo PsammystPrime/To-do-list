@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import profile from "/profile1.png";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
+Home.propTypes = {
+  taskArray: PropTypes.string.isRequired,
+  setTaskArray: PropTypes.string.isRequired,
+  completeTaskArray: PropTypes.string.isRequired,
+  setCompleteTaskArray: PropTypes.string.isRequired,
+  pendingTaskArray: PropTypes.string.isRequired,
+  setPendingTaskArray: PropTypes.string.isRequired,
+};
 export default function Home({
   taskArray,
   setTaskArray,
@@ -11,7 +20,6 @@ export default function Home({
   setPendingTaskArray,
 }) {
   const [isChecked, setIsChecked] = useState(false);
-
   function DeleteTask(index) {
     const removedTasks = taskArray.filter((element, i) => i !== index);
     setTaskArray(removedTasks);
@@ -36,9 +44,6 @@ export default function Home({
   }
   function handlePendingCheckbox(index) {
     const addPendingTask = taskArray[index];
-    // console.log("asss");
-    console.log(addPendingTask);
-    console.log(pendingTaskArray);
     setPendingTaskArray([...pendingTaskArray, addPendingTask]);
     DeleteTask(index);
   }
