@@ -41,6 +41,11 @@ export default function Home({ taskArray, setTaskArray }) {
     setCompleteTaskArray([...completeTaskArray, pushedTask]);
     DeletePendingTask(index);
   }
+  function handlePushToPending(index) {
+    const pushedTask = completeTaskArray[index];
+    setPendingTaskArray([...pendingTaskArray, pushedTask]);
+    DeleteCompletedTask(index);
+  }
 
   // display the output
   return (
@@ -94,6 +99,12 @@ export default function Home({ taskArray, setTaskArray }) {
                     onClick={() => DeleteCompletedTask(index)}
                   >
                     delete
+                  </button>{" "}
+                  <button
+                    className="delete"
+                    onClick={() => handlePushToPending(index)}
+                  >
+                    Mark Pending
                   </button>
                 </li>
               ))}
